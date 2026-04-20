@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Van {{ vrn }} - RAM Details</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+      header { padding: 16px 20px; border-bottom: 1px solid rgba(127,127,127,.35); }
+      main { padding: 16px 20px; }
+      .muted { opacity: 0.75; }
+      .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(127,127,127,.35); font-size: 12px; }
+      .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: space-between; }
+      table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+      th, td { border-bottom: 1px solid rgba(127,127,127,.25); text-align: left; padding: 8px 6px; font-size: 13px; vertical-align: top; }
+      th { opacity: .85; }
+      a { color: inherit; }
+      .err { color: #b00020; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="row">
+        <div>
+          <div style="font-size: 18px; font-weight: 650;">Van {{ vrn }}</div>
+          <div class="muted" style="font-size: 13px;">Shift: {{ shift_start }} to {{ shift_end }} (UTC) | Date D: {{ date }}</div>
+        </div>
+        <div style="display:flex; gap: 8px; align-items:center;">
+          <a href="/"><span class="pill">Back</span></a>
+          <span class="pill">vehicleId {{ vehicle_id }}</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      {% if error %}
+        <div class="err">{{ error }}</div>
+      {% endif %}
+
+      {% if status == "NO_DATA" %}
+        <div class="pill">NO_DATA</div>
+        <div class="muted" style="margin-top:10px;">No RAM events were found in the shift window for this van.</div>
+      {% else %}
+        <div style="display:flex; gap: 10px; flex-wrap: wrap;">
+          <div class="pill">Overspeed segments: {{ overspeed_segments }}</div>
+          <div class="pill">Overspeed time: {{ overspeed_time }}</div>
+          <div class="pill">Idling time: {{ idling_time }}</div>
+          <div class="pill">Journeys: {{ journey_count }}</div>
+        </div>
+
+        <h3 style="margin-top: 18px; margin-bottom: 6px;">Overspeed events</h3>
+        <div class="muted">Speed is overspeed when speedKph &gt; speedLimitKph + tolerance. Displayed in MPH.</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Time (UTC)</th>
+              <th>Speed / Limit</th>
+              <th>Postcode</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ev in overspeed_events %}
+              <tr>
+                <td><code>{{ ev.eventUtc }}</code></td>
+                <td>{{ ev.speedMph }} / {{ ev.speedLimitMph }}</td>
+                <td>{{ ev.postCode or "-" }}</td>
+                <td>
+                  {% if ev.mapsUrl %}
+                    <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                    <div class="muted"><code>{{ ev.latitude }}, {{ ev.longitude }}</code></div>
+                  {% else %}
+                    -
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <h3 style="margin-top: 18px; margin-bottom: 6px;">Idle/Stationary events</h3>
+        <div class="muted">Segments are STATIONARY -&gt; DRIVING, filtered by idling windows.</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Start (UTC)</th>
+              <th>End (UTC)</th>
+              <th>Duration</th>
+              <th>Postcode</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ev in idling_events %}
+              <tr>
+                <td><code>{{ ev.startUtc }}</code></td>
+                <td><code>{{ ev.endUtc }}</code></td>
+                <td>{{ ev.durationText }}</td>
+                <td>{{ ev.postCode or "-" }}</td>
+                <td>
+                  {% if ev.mapsUrl %}
+                    <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                    <div class="muted"><code>{{ ev.latitude }}, {{ ev.longitude }}</code></div>
+                  {% else %}
+                    -
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <h3 style="margin-top: 18px; margin-bottom: 6px;">Journeys (GEOFENCE_OUT -&gt; GEOFENCE_IN)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Start (UTC)</th>
+              <th>End (UTC)</th>
+              <th>Duration</th>
+              <th>Distance (km)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for j in journeys %}
+              <tr>
+                <td><code>{{ j.startUtc }}</code></td>
+                <td><code>{{ j.endUtc }}</code></td>
+                <td>{{ j.durationSeconds }}</td>
+                <td>{{ j.distanceKm if j.distanceKm is not none else "-" }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    </main>
+  </body>
+</html>
+

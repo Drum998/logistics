@@ -1,0 +1,16 @@
+services:
+  ram-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: logistics-ram-dashboard:local
+    ports:
+      - "8003:8000"
+    environment:
+      # Optional if you set these in the env file
+      - RAM_API_BASE_URL=${RAM_API_BASE_URL:-https://api.qaifn.co.uk}
+      - RAM_TOKEN_URL=${RAM_TOKEN_URL:-https://auth.qaifn.co.uk/oauth/token}
+      - OVERSPEED_KPH_TOLERANCE=${OVERSPEED_KPH_TOLERANCE:-10}
+    env_file:
+      # Create this file locally (do not commit secrets).
+      - ./ram_dashboard/.env

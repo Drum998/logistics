@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Logistics - RAM Dashboard</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0b1020;
+        --surface: rgba(255,255,255,.06);
+        --surface2: rgba(255,255,255,.09);
+        --border: rgba(255,255,255,.12);
+        --text: rgba(255,255,255,.92);
+        --muted: rgba(255,255,255,.72);
+        --primary: #7aa2ff;
+        --danger: #ff6b6b;
+        --ok: #2ecc71;
+        --warn: #f5b041;
+        --hi: #ff6b6b;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f6f7fb;
+          --surface: rgba(0,0,0,.04);
+          --surface2: rgba(0,0,0,.06);
+          --border: rgba(0,0,0,.10);
+          --text: rgba(0,0,0,.88);
+          --muted: rgba(0,0,0,.62);
+        }
+      }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(122,162,255,.18), transparent 70%);
+      }
+      main { padding: 16px 20px; max-width: 1200px; margin: 0 auto; }
+      .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+      .cardRow { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 14px; }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 6px 18px rgba(0,0,0,.12);
+      }
+      .muted { opacity: 1; color: var(--muted); }
+      .error { color: var(--danger); }
+      label { display: block; font-size: 12px; margin-bottom: 6px; color: var(--muted); }
+      input, button {
+        font: inherit;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--surface2);
+        color: var(--text);
+        outline: none;
+      }
+      button {
+        cursor: pointer;
+        background: linear-gradient(180deg, rgba(122,162,255,.35), rgba(122,162,255,.15));
+        border-color: rgba(122,162,255,.35);
+      }
+      button:hover { filter: brightness(1.05); }
+      table { width: 100%; border-collapse: collapse; margin-top: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+      th, td { border-bottom: 1px solid var(--border); text-align: left; padding: 10px 10px; font-size: 13px; }
+      th { color: var(--muted); font-weight: 650; background: rgba(0,0,0,.10); }
+      .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); font-size: 12px; background: var(--surface2); }
+      .sev { font-weight: 650; }
+      .sev.low { color: var(--ok); }
+      .sev.med { color: var(--warn); }
+      .sev.high { color: var(--hi); }
+      .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+      .tabBtn { background: var(--surface); border: 1px solid var(--border); }
+      .tabBtn.active { border-color: rgba(122,162,255,.55); box-shadow: inset 0 0 0 1px rgba(122,162,255,.35); }
+      .tabPanel { display: none; margin-top: 12px; }
+      .tabPanel.active { display: block; }
+      .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+      .chip { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; user-select: none; font-size: 12px; }
+      .chip.active { border-color: rgba(122,162,255,.55); }
+      .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin-top: 10px; }
+      .controlCard { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 12px; }
+      a { color: var(--primary); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap: 16px;">
+        <div>
+          <div style="font-size: 18px; font-weight: 650;">Logistics RAM Dashboard</div>
+          <div class="muted" style="font-size: 13px;">Shift window: 18:00 (D) to 06:00 (D+1) UTC</div>
+        </div>
+        <div class="pill">{{ van_count }} vans configured</div>
+      </div>
+    </header>
+
+    <main>
+      <div class="row">
+        <div>
+          <label for="shiftDate">Shift date (D)</label>
+          <input id="shiftDate" type="date" />
+        </div>
+        <div>
+          <button id="runBtn">Run all vans</button>
+        </div>
+      </div>
+
+      <div id="status" class="muted" style="margin-top: 10px;"></div>
+      <div id="error" class="error" style="margin-top: 10px; display:none;"></div>
+      <div id="retryRow" class="row" style="margin-top: 10px; display: none; align-items: center;">
+        <button type="button" id="retryFailedBtn">Retry failed vans only</button>
+        <span class="muted" id="retryHint"></span>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Dashboard sections">
+        <button class="tabBtn active" id="tabOverview" data-tab="overview">Overview</button>
+        <button class="tabBtn" id="tabVans" data-tab="vans">Vans</button>
+        <button class="tabBtn" id="tabJourneys" data-tab="journeys">Journeys</button>
+      </div>
+
+      <div class="tabPanel active" id="panel-overview">
+        <div class="card" style="margin-top: 12px;">
+          <div class="muted" style="font-weight:650;">Daily narrative</div>
+          <div id="narrative" style="margin-top: 6px;">Run a date to see a summary.</div>
+        </div>
+
+        <div class="cardRow" id="cards" style="display:none;">
+        <div class="card">
+          <div class="muted">Overspeed time</div>
+          <div id="overspeedTime" style="font-size: 22px; font-weight: 700;">-</div>
+          <div class="muted" id="overspeedSegments">-</div>
+        </div>
+        <div class="card">
+          <div class="muted">Idling time</div>
+          <div id="idlingTime" style="font-size: 22px; font-weight: 700;">-</div>
+          <div class="muted">From STATIONARY -> DRIVING segments</div>
+        </div>
+        <div class="card">
+          <div class="muted">Journeys</div>
+          <div id="journeyCount" style="font-size: 22px; font-weight: 700;">-</div>
+          <div class="muted" id="journeyTotals">-</div>
+        </div>
+        </div>
+      </div>
+
+      <div class="tabPanel" id="panel-vans">
+        <div class="controlCard">
+          <div class="muted" style="font-weight:650;">Smart filters</div>
+          <div class="chips" id="statusChips">
+            <div class="chip active" data-status="ALL">All</div>
+            <div class="chip" data-status="OK">OK</div>
+            <div class="chip" data-status="ERROR">ERROR</div>
+          </div>
+          <div class="controls">
+            <div>
+              <label for="minOverspeedMin">Min overspeed (minutes)</label>
+              <input id="minOverspeedMin" type="number" min="0" step="1" value="0" />
+            </div>
+            <div>
+              <label for="minIdlingMin">Min idling (minutes)</label>
+              <input id="minIdlingMin" type="number" min="0" step="1" value="0" />
+            </div>
+            <div>
+              <label for="minJourneys">Min journeys</label>
+              <input id="minJourneys" type="number" min="0" step="1" value="0" />
+            </div>
+          </div>
+          <div class="muted" style="margin-top:8px;">Tip: click a VRN to drill down for overspeed event locations (Google Maps).</div>
+        </div>
+
+        <table id="vanTable" style="display:none;">
+          <thead>
+            <tr>
+              <th>VRN</th>
+              <th>Status</th>
+              <th>Overspeed</th>
+              <th>Overspeed severity</th>
+              <th>Idling</th>
+              <th>Idling severity</th>
+              <th>Journeys</th>
+            </tr>
+          </thead>
+          <tbody id="vanTbody"></tbody>
+        </table>
+      </div>
+
+      <div class="tabPanel" id="panel-journeys">
+        <table id="journeyTable" style="display:none;">
+        <thead>
+          <tr>
+            <th>VRN</th>
+            <th>Start (UTC)</th>
+            <th>End (UTC)</th>
+            <th>Duration</th>
+            <th>Distance (km)</th>
+          </tr>
+        </thead>
+        <tbody id="journeyTbody"></tbody>
+        </table>
+      </div>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+
