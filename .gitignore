@@ -42,6 +42,7 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+/ram_dashboard/.env 
 
 # Local data and cache folders
 data_cache/
