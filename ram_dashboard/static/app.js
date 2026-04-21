@@ -49,10 +49,7 @@ function fmtSeconds(secs) {
   const s = Math.max(0, Math.floor(secs));
   const h = Math.floor(s / 3600);
   const m = Math.floor((s % 3600) / 60);
-  const r = s % 60;
-  if (h > 0) return `${h}h ${m}m ${r}s`;
-  if (m > 0) return `${m}m ${r}s`;
-  return `${r}s`;
+  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 }
 
 function secsToMinutes(secs) {
@@ -165,7 +162,12 @@ function applyVanFilters(vanRows) {
 function renderSummary(resultsByVrn, errorsByVrn) {
   let totalOverspeedSeconds = 0;
   let totalOverspeedSegments = 0;
-  let totalIdlingSeconds = 0;
+  let totalIdlingOnRoundSeconds = 0;
+  let totalIdlingDepotSeconds = 0;
+  let totalStationaryIgnOffOnRoundSeconds = 0;
+  let totalStationaryIgnOffDepotSeconds = 0;
+  let totalIdlingAmalgamatedSeconds = 0;
+  let totalStationaryIgnOffAmalgamatedSeconds = 0;
   let totalJourneys = 0;
   let totalJourneySeconds = 0;
   let totalJourneyKm = 0;
@@ -184,7 +186,10 @@ function renderSummary(resultsByVrn, errorsByVrn) {
     seenVrn.add(vrn);
     totalOverspeedSeconds += r.overspeed?.totalSeconds || 0;
     totalOverspeedSegments += r.overspeed?.segmentCount || 0;
-    totalIdlingSeconds += r.idling?.totalSeconds || 0;
+    totalIdlingOnRoundSeconds += r.idlingOnRound?.totalSeconds || r.idling?.totalSeconds || 0;
+    totalIdlingDepotSeconds += r.idlingDepot?.totalSeconds || 0;
+    totalStationaryIgnOffOnRoundSeconds += r.stationaryIgnOffOnRound?.totalSeconds || 0;
+    totalStationaryIgnOffDepotSeconds += r.stationaryIgnOffDepot?.totalSeconds || 0;
     totalJourneys += r.journeys?.count || 0;
     totalJourneySeconds += r.journeys?.totalSeconds || 0;
     totalJourneyKm += r.journeys?.totalKm || 0;
@@ -193,7 +198,7 @@ function renderSummary(resultsByVrn, errorsByVrn) {
       vrn,
       status: "OK",
       overspeedSeconds: r.overspeed?.totalSeconds || 0,
-      idlingSeconds: r.idling?.totalSeconds || 0,
+      idlingSeconds: r.idlingOnRound?.totalSeconds || r.idling?.totalSeconds || 0,
       journeyCount: r.journeys?.count || 0,
     });
   }
@@ -206,11 +211,24 @@ function renderSummary(resultsByVrn, errorsByVrn) {
   }
 
   document.getElementById("cards").style.display = "grid";
+  document.getElementById("reconCards").style.display = "grid";
   document.getElementById("journeyTable").style.display = journeys.length ? "table" : "none";
 
   document.getElementById("overspeedTime").textContent = fmtSeconds(totalOverspeedSeconds);
   document.getElementById("overspeedSegments").textContent = `${totalOverspeedSegments} segments`;
-  document.getElementById("idlingTime").textContent = fmtSeconds(totalIdlingSeconds);
+  document.getElementById("idlingOnRoundTime").textContent = fmtSeconds(totalIdlingOnRoundSeconds);
+  document.getElementById("idlingDepotTime").textContent = fmtSeconds(totalIdlingDepotSeconds);
+  document.getElementById("stationaryIgnOffOnRoundTime").textContent = fmtSeconds(totalStationaryIgnOffOnRoundSeconds);
+  document.getElementById("stationaryIgnOffDepotTime").textContent = fmtSeconds(totalStationaryIgnOffDepotSeconds);
+  totalIdlingAmalgamatedSeconds = totalIdlingOnRoundSeconds + totalIdlingDepotSeconds;
+  totalStationaryIgnOffAmalgamatedSeconds =
+    totalStationaryIgnOffOnRoundSeconds + totalStationaryIgnOffDepotSeconds;
+  document.getElementById("idlingAmalgamatedTime").textContent = fmtSeconds(totalIdlingAmalgamatedSeconds);
+  document.getElementById("idlingReconText").textContent =
+    `${fmtSeconds(totalIdlingOnRoundSeconds)} on-round + ${fmtSeconds(totalIdlingDepotSeconds)} depot`;
+  document.getElementById("stationaryIgnOffAmalgamatedTime").textContent = fmtSeconds(totalStationaryIgnOffAmalgamatedSeconds);
+  document.getElementById("stationaryIgnOffReconText").textContent =
+    `${fmtSeconds(totalStationaryIgnOffOnRoundSeconds)} on-round + ${fmtSeconds(totalStationaryIgnOffDepotSeconds)} depot`;
   document.getElementById("journeyCount").textContent = `${totalJourneys}`;
   document.getElementById("journeyTotals").textContent = `${fmtSeconds(totalJourneySeconds)} total, ${fmtKm(totalJourneyKm)} km`;
 
@@ -234,7 +252,11 @@ function renderSummary(resultsByVrn, errorsByVrn) {
     `${okCount} vans had activity in this shift${errorCount ? `; ${errorCount} vans failed to load (see Vans tab or banner)` : ""}. ` +
       `Totals below are for active vans only. ` +
       `Overspeed ${fmtSeconds(totalOverspeedSeconds)} (${totalOverspeedSegments} segments); ` +
-      `idling ${fmtSeconds(totalIdlingSeconds)}; journeys ${totalJourneys} (${fmtSeconds(totalJourneySeconds)}, ${fmtKm(totalJourneyKm)} km).`
+      `idling on-round ${fmtSeconds(totalIdlingOnRoundSeconds)}; ` +
+      `idling depot ${fmtSeconds(totalIdlingDepotSeconds)}; ` +
+      `stationary+ignition-off on-round ${fmtSeconds(totalStationaryIgnOffOnRoundSeconds)}; ` +
+      `stationary+ignition-off depot ${fmtSeconds(totalStationaryIgnOffDepotSeconds)}; ` +
+      `journeys ${totalJourneys} (${fmtSeconds(totalJourneySeconds)}, ${fmtKm(totalJourneyKm)} km).`
   );
 
   const shiftDate = document.getElementById("shiftDate").value;

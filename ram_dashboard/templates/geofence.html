@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geofence Time Check</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+      header { padding: 16px 20px; border-bottom: 1px solid rgba(127,127,127,.35); }
+      main { padding: 16px 20px; }
+      .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+      .muted { opacity: 0.75; }
+      .err { color: #b00020; }
+      .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(127,127,127,.35); font-size: 12px; }
+      label { display: block; font-size: 12px; margin-bottom: 6px; }
+      input, button {
+        font: inherit;
+        padding: 8px 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(127,127,127,.35);
+        background: transparent;
+      }
+      button { cursor: pointer; }
+      table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+      th, td { border-bottom: 1px solid rgba(127,127,127,.25); text-align: left; padding: 8px 6px; font-size: 13px; }
+      th { opacity: .85; }
+      a { color: inherit; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap: 16px;">
+        <div>
+          <div style="font-size: 18px; font-weight: 650;">Geofence Time Sanity Check</div>
+          <div class="muted" style="font-size: 13px;">Total time inside geofence windows (GEOFENCE_IN to GEOFENCE_OUT)</div>
+        </div>
+        <a href="/"><span class="pill">Back to dashboard</span></a>
+      </div>
+    </header>
+    <main>
+      <form method="get" action="/geofence" class="row">
+        <div>
+          <label for="date">Shift date (D)</label>
+          <input id="date" name="date" type="date" value="{{ date }}" />
+        </div>
+        <div>
+          <button type="submit">Run geofence check</button>
+        </div>
+      </form>
+
+      {% if error %}
+        <div class="err" style="margin-top: 10px;">{{ error }}</div>
+      {% endif %}
+
+      {% if has_results %}
+        <div class="muted" style="margin-top: 10px;">
+          Shift window: <code>{{ shift_start }}</code> to <code>{{ shift_end }}</code> (UTC)
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>VRN</th>
+              <th>Vehicle ID</th>
+              <th>Inside geofence time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in rows %}
+              <tr>
+                <td>{{ r.vrn }}</td>
+                <td>{{ r.vehicle_id }}</td>
+                <td>{{ r.inside_text }}</td>
+                <td>{{ r.status }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    </main>
+  </body>
+</html>

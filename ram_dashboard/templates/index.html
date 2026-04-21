@@ -113,6 +113,9 @@
       </div>
 
       <div id="status" class="muted" style="margin-top: 10px;"></div>
+      <div class="muted" style="margin-top: 6px; font-size: 12px;">
+        Depot postcodes reference: TR9 6HQ, SN5 8UY, B69 1DT (classification uses RAM geofence windows).
+      </div>
       <div id="error" class="error" style="margin-top: 10px; display:none;"></div>
       <div id="retryRow" class="row" style="margin-top: 10px; display: none; align-items: center;">
         <button type="button" id="retryFailedBtn">Retry failed vans only</button>
@@ -138,15 +141,43 @@
           <div class="muted" id="overspeedSegments">-</div>
         </div>
         <div class="card">
-          <div class="muted">Idling time</div>
-          <div id="idlingTime" style="font-size: 22px; font-weight: 700;">-</div>
-          <div class="muted">From STATIONARY -> DRIVING segments</div>
+          <div class="muted">Idling (On-Round)</div>
+          <div id="idlingOnRoundTime" style="font-size: 22px; font-weight: 700;">-</div>
+          <div class="muted">STATIONARY -> DRIVING outside depot geofence</div>
+        </div>
+        <div class="card">
+          <div class="muted">Idling (Depot)</div>
+          <div id="idlingDepotTime" style="font-size: 22px; font-weight: 700;">-</div>
+          <div class="muted">STATIONARY -> DRIVING inside depot geofence</div>
+        </div>
+        <div class="card">
+          <div class="muted">Stationary + Ignition Off (On-Round)</div>
+          <div id="stationaryIgnOffOnRoundTime" style="font-size: 22px; font-weight: 700;">-</div>
+          <div class="muted">STATIONARY intersect IGNITION_OFF -> IGNITION_ON outside depot</div>
+        </div>
+        <div class="card">
+          <div class="muted">Stationary + Ignition Off (Depot)</div>
+          <div id="stationaryIgnOffDepotTime" style="font-size: 22px; font-weight: 700;">-</div>
+          <div class="muted">STATIONARY intersect IGNITION_OFF -> IGNITION_ON inside depot</div>
         </div>
         <div class="card">
           <div class="muted">Journeys</div>
           <div id="journeyCount" style="font-size: 22px; font-weight: 700;">-</div>
           <div class="muted" id="journeyTotals">-</div>
         </div>
+        </div>
+
+        <div class="cardRow" id="reconCards" style="display:none;">
+          <div class="card">
+            <div class="muted">Idling (Amalgamated Total)</div>
+            <div id="idlingAmalgamatedTime" style="font-size: 22px; font-weight: 700;">-</div>
+            <div class="muted" id="idlingReconText">-</div>
+          </div>
+          <div class="card">
+            <div class="muted">Stationary + Ignition Off (Amalgamated Total)</div>
+            <div id="stationaryIgnOffAmalgamatedTime" style="font-size: 22px; font-weight: 700;">-</div>
+            <div class="muted" id="stationaryIgnOffReconText">-</div>
+          </div>
         </div>
       </div>
 

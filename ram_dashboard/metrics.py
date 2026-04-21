@@ -22,19 +22,42 @@ def extract_overspeed_events(
     overspeed_kph_tolerance: float,
     max_items: int = 500,
 ) -> list[dict]:
+    def _fmt_hh_mm_from_seconds(secs: float | int | None) -> str:
+        if secs is None:
+            return "00:00"
+        s = int(round(float(secs)))
+        if s < 0:
+            s = 0
+        h = s // 3600
+        m = (s % 3600) // 60
+        return f"{h:02d}:{m:02d}"
+
     out: list[dict] = []
-    for ev in events:
+    run_id = 0
+    in_run = False
+    for idx, ev in enumerate(events):
         if ev.event_date < shift_start:
             continue
         if ev.event_date > shift_end:
             break
         if ev.speed_kph is None or ev.speed_limit_kph is None:
+            in_run = False
             continue
         if ev.speed_limit_kph <= 0:
             # Ignore invalid/unset speed limits.
+            in_run = False
             continue
         if ev.speed_kph <= (ev.speed_limit_kph + overspeed_kph_tolerance):
+            in_run = False
             continue
+
+        if not in_run:
+            run_id += 1
+            in_run = True
+
+        next_event_dt = events[idx + 1].event_date if (idx + 1) < len(events) else shift_end
+        event_end = min(next_event_dt, shift_end)
+        event_duration_seconds = max(0.0, (event_end - ev.event_date).total_seconds())
 
         item = {
             "eventUtc": ev.event_date.isoformat(),
@@ -42,15 +65,36 @@ def extract_overspeed_events(
             "speedLimitKph": ev.speed_limit_kph,
             "speedMph": round(_kph_to_mph(ev.speed_kph), 1),
             "speedLimitMph": int(math.ceil(_kph_to_mph(ev.speed_limit_kph))),
+            "overspeedMph": round(_kph_to_mph(ev.speed_kph - ev.speed_limit_kph), 1),
             "postCode": ev.post_code,
             "latitude": ev.latitude,
             "longitude": ev.longitude,
+            "runId": run_id,
+            "eventDurationSeconds": event_duration_seconds,
         }
         if ev.latitude is not None and ev.longitude is not None:
             item["mapsUrl"] = _google_maps_url(ev.latitude, ev.longitude)
         out.append(item)
         if len(out) >= max_items:
             break
+
+    # Add consecutive run position metadata for table display.
+    run_totals: dict[int, int] = {}
+    run_durations: dict[int, float] = {}
+    for item in out:
+        rid = int(item.get("runId") or 0)
+        run_totals[rid] = run_totals.get(rid, 0) + 1
+        run_durations[rid] = run_durations.get(rid, 0.0) + float(item.get("eventDurationSeconds") or 0.0)
+
+    run_seen: dict[int, int] = {}
+    for item in out:
+        rid = int(item.get("runId") or 0)
+        run_seen[rid] = run_seen.get(rid, 0) + 1
+        item["runEventIndex"] = run_seen[rid]
+        item["runLength"] = run_totals.get(rid, 1)
+        item["runText"] = f'{item["runEventIndex"]}/{item["runLength"]}'
+        item["runDurationSeconds"] = run_durations.get(rid, 0.0)
+        item["runDurationText"] = _fmt_hh_mm_from_seconds(item["runDurationSeconds"])
     return out
 
 
@@ -155,6 +199,34 @@ def _intersect_intervals(a: list[tuple[datetime, datetime]], b: list[tuple[datet
             i += 1
         else:
             j += 1
+    return out
+
+
+def _subtract_intervals(
+    intervals: list[tuple[datetime, datetime]],
+    subtractors: list[tuple[datetime, datetime]],
+) -> list[tuple[datetime, datetime]]:
+    if not intervals:
+        return []
+    if not subtractors:
+        return list(intervals)
+
+    out: list[tuple[datetime, datetime]] = []
+    subtractors_sorted = _merge_intervals(subtractors)
+    for start, end in _merge_intervals(intervals):
+        cursor = start
+        for ss, se in subtractors_sorted:
+            if se <= cursor:
+                continue
+            if ss >= end:
+                break
+            if ss > cursor:
+                out.append((cursor, min(ss, end)))
+            cursor = max(cursor, se)
+            if cursor >= end:
+                break
+        if cursor < end:
+            out.append((cursor, end))
     return out
 
 
@@ -287,6 +359,23 @@ def _compute_geofence_journeys(
     return journeys
 
 
+def compute_geofence_inside_seconds(
+    *,
+    events: list[RamEvent],
+    shift_start: datetime,
+    shift_end: datetime,
+) -> float:
+    inside_windows = _paired_windows(
+        events,
+        "GEOFENCE_IN",
+        "GEOFENCE_OUT",
+        shift_start=shift_start,
+        shift_end=shift_end,
+    )
+    inside_windows = _merge_intervals(inside_windows)
+    return _sum_interval_seconds(inside_windows)
+
+
 def compute_metrics_for_shift(
     *,
     vrn: str,
@@ -348,8 +437,24 @@ def compute_metrics_for_shift(
     idling_windows = _build_idling_windows_union(events_sorted, shift_start=shift_start, shift_end=shift_end)
     stationary_segs = _stationary_segments(events_sorted, shift_start=shift_start, shift_end=shift_end)
     idling_segs = _intersect_intervals(stationary_segs, idling_windows) if idling_windows else stationary_segs
-    idling_seconds = _sum_interval_seconds(idling_segs)
-    idling_events = extract_idling_events(events=events_sorted, segments=idling_segs)
+    depot_windows = _paired_windows(events_sorted, "GEOFENCE_IN", "GEOFENCE_OUT", shift_start=shift_start, shift_end=shift_end)
+    depot_windows = _merge_intervals(depot_windows)
+
+    idling_depot_segs = _intersect_intervals(idling_segs, depot_windows) if depot_windows else []
+    idling_on_round_segs = _subtract_intervals(idling_segs, depot_windows) if depot_windows else idling_segs
+
+    idling_depot_seconds = _sum_interval_seconds(idling_depot_segs)
+    idling_on_round_seconds = _sum_interval_seconds(idling_on_round_segs)
+    idling_depot_events = extract_idling_events(events=events_sorted, segments=idling_depot_segs)
+    idling_on_round_events = extract_idling_events(events=events_sorted, segments=idling_on_round_segs)
+
+    ignition_off_windows = _paired_windows(events_sorted, "IGNITION_OFF", "IGNITION_ON", shift_start=shift_start, shift_end=shift_end)
+    ignition_off_windows = _merge_intervals(ignition_off_windows)
+    stationary_ign_off_segs = _intersect_intervals(stationary_segs, ignition_off_windows) if ignition_off_windows else []
+    stationary_ign_off_depot_segs = _intersect_intervals(stationary_ign_off_segs, depot_windows) if depot_windows else []
+    stationary_ign_off_on_round_segs = (
+        _subtract_intervals(stationary_ign_off_segs, depot_windows) if depot_windows else stationary_ign_off_segs
+    )
 
     journeys = _compute_geofence_journeys(events_sorted, shift_start=shift_start, shift_end=shift_end)
     journey_total_seconds = float(sum(j.get("durationSeconds") or 0 for j in journeys))
@@ -365,11 +470,32 @@ def compute_metrics_for_shift(
             "events": overspeed_events,
         },
         "idling": {
-            "totalSeconds": idling_seconds,
+            # Backward-compatible key now represents on-round only.
+            "totalSeconds": idling_on_round_seconds,
             "stationarySegmentsCount": len(stationary_segs),
-            "countedSegmentsCount": len(idling_segs),
+            "countedSegmentsCount": len(idling_on_round_segs),
             "windows": [{"startUtc": s.isoformat(), "endUtc": e.isoformat()} for s, e in idling_windows],
-            "events": idling_events,
+            "events": idling_on_round_events,
+        },
+        "idlingDepot": {
+            "totalSeconds": idling_depot_seconds,
+            "countedSegmentsCount": len(idling_depot_segs),
+            "events": idling_depot_events,
+        },
+        "idlingOnRound": {
+            "totalSeconds": idling_on_round_seconds,
+            "countedSegmentsCount": len(idling_on_round_segs),
+            "events": idling_on_round_events,
+        },
+        "stationaryIgnOffDepot": {
+            "totalSeconds": _sum_interval_seconds(stationary_ign_off_depot_segs),
+            "countedSegmentsCount": len(stationary_ign_off_depot_segs),
+            "events": extract_idling_events(events=events_sorted, segments=stationary_ign_off_depot_segs),
+        },
+        "stationaryIgnOffOnRound": {
+            "totalSeconds": _sum_interval_seconds(stationary_ign_off_on_round_segs),
+            "countedSegmentsCount": len(stationary_ign_off_on_round_segs),
+            "events": extract_idling_events(events=events_sorted, segments=stationary_ign_off_on_round_segs),
         },
         "journeys": {
             "count": len(journeys),

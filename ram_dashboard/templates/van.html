@@ -17,6 +17,15 @@
       th { opacity: .85; }
       a { color: inherit; }
       .err { color: #b00020; }
+      .pairWrap { display: flex; flex-wrap: wrap; gap: 14px; }
+      .pairPanel { flex: 1 1 460px; min-width: 360px; }
+      .dateRow td {
+        font-weight: 650;
+        background: rgba(127,127,127,.16);
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
       code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 12px; }
     </style>
   </head>
@@ -46,7 +55,11 @@
         <div style="display:flex; gap: 10px; flex-wrap: wrap;">
           <div class="pill">Overspeed segments: {{ overspeed_segments }}</div>
           <div class="pill">Overspeed time: {{ overspeed_time }}</div>
-          <div class="pill">Idling time: {{ idling_time }}</div>
+          <div class="pill">Idling on-round: {{ idling_on_round_time|default(idling_time) }}</div>
+          <div class="pill">Idling depot: {{ idling_depot_time|default("-") }}</div>
+          <div class="pill">Stationary + ignition off on-round: {{ stationary_ign_off_on_round_time|default("-") }}</div>
+          <div class="pill">Stationary + ignition off depot: {{ stationary_ign_off_depot_time|default("-") }}</div>
+          <div class="pill">Inside geofence: {{ geofence_inside_time|default("-") }}</div>
           <div class="pill">Journeys: {{ journey_count }}</div>
         </div>
 
@@ -56,61 +69,165 @@
           <thead>
             <tr>
               <th>Time (UTC)</th>
-              <th>Speed / Limit</th>
+              <th>Speed / Limit (mph)</th>
               <th>Postcode</th>
-              <th>Location</th>
             </tr>
           </thead>
           <tbody>
-            {% for ev in overspeed_events %}
-              <tr>
-                <td><code>{{ ev.eventUtc }}</code></td>
-                <td>{{ ev.speedMph }} / {{ ev.speedLimitMph }}</td>
-                <td>{{ ev.postCode or "-" }}</td>
-                <td>
-                  {% if ev.mapsUrl %}
-                    <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                    <div class="muted"><code>{{ ev.latitude }}, {{ ev.longitude }}</code></div>
-                  {% else %}
-                    -
-                  {% endif %}
-                </td>
-              </tr>
+            {% for group in overspeed_groups|default([]) %}
+              <tr class="dateRow"><td colspan="3">{{ group.dateLabel }}</td></tr>
+              {% for ev in group.rows %}
+                <tr>
+                  <td>{{ ev.timeText }}</td>
+                  <td>{{ ev.speedMph }} / {{ ev.speedLimitMph }}</td>
+                  <td>
+                    {% if ev.postCode and ev.mapsUrl %}
+                      <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener noreferrer">{{ ev.postCode }}</a>
+                    {% else %}
+                      {{ ev.postCode or "-" }}
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endfor %}
             {% endfor %}
           </tbody>
         </table>
 
-        <h3 style="margin-top: 18px; margin-bottom: 6px;">Idle/Stationary events</h3>
-        <div class="muted">Segments are STATIONARY -&gt; DRIVING, filtered by idling windows.</div>
-        <table>
-          <thead>
-            <tr>
-              <th>Start (UTC)</th>
-              <th>End (UTC)</th>
-              <th>Duration</th>
-              <th>Postcode</th>
-              <th>Location</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for ev in idling_events %}
-              <tr>
-                <td><code>{{ ev.startUtc }}</code></td>
-                <td><code>{{ ev.endUtc }}</code></td>
-                <td>{{ ev.durationText }}</td>
-                <td>{{ ev.postCode or "-" }}</td>
-                <td>
-                  {% if ev.mapsUrl %}
-                    <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener noreferrer">Google Maps</a>
-                    <div class="muted"><code>{{ ev.latitude }}, {{ ev.longitude }}</code></div>
-                  {% else %}
-                    -
-                  {% endif %}
-                </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+        <h3 style="margin-top: 18px; margin-bottom: 6px;">Idling events</h3>
+        <div class="pairWrap">
+          <div class="pairPanel">
+            <div class="muted">On-Round: STATIONARY -&gt; DRIVING segments outside depot geofence.</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Start (UTC)</th>
+                  <th>End (UTC)</th>
+                  <th>Duration</th>
+                  <th>Postcode</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for group in idling_on_round_groups|default([]) %}
+                  <tr class="dateRow"><td colspan="4">{{ group.dateLabel }}</td></tr>
+                  {% for ev in group.rows %}
+                    <tr>
+                      <td>{{ ev.startTimeText }}</td>
+                      <td>{{ ev.endTimeText }}</td>
+                      <td>{{ ev.durationHms }}</td>
+                      <td>
+                        {% if ev.postCode and ev.mapsUrl %}
+                          <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener noreferrer">{{ ev.postCode }}</a>
+                        {% else %}
+                          {{ ev.postCode or "-" }}
+                        {% endif %}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="pairPanel">
+            <div class="muted">Depot: STATIONARY -&gt; DRIVING segments inside depot geofence.</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Start (UTC)</th>
+                  <th>End (UTC)</th>
+                  <th>Duration</th>
+                  <th>Postcode</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for group in idling_depot_groups|default([]) %}
+                  <tr class="dateRow"><td colspan="4">{{ group.dateLabel }}</td></tr>
+                  {% for ev in group.rows %}
+                    <tr>
+                      <td>{{ ev.startTimeText }}</td>
+                      <td>{{ ev.endTimeText }}</td>
+                      <td>{{ ev.durationHms }}</td>
+                      <td>
+                        {% if ev.postCode and ev.mapsUrl %}
+                          <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener noreferrer">{{ ev.postCode }}</a>
+                        {% else %}
+                          {{ ev.postCode or "-" }}
+                        {% endif %}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 18px; margin-bottom: 6px;">Stationary + ignition off events</h3>
+        <div class="pairWrap">
+          <div class="pairPanel">
+            <div class="muted">On-Round: STATIONARY intersected with IGNITION_OFF -&gt; IGNITION_ON outside depot geofence.</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Start (UTC)</th>
+                  <th>End (UTC)</th>
+                  <th>Duration</th>
+                  <th>Postcode</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for group in stationary_ign_off_on_round_groups|default([]) %}
+                  <tr class="dateRow"><td colspan="4">{{ group.dateLabel }}</td></tr>
+                  {% for ev in group.rows %}
+                    <tr>
+                      <td>{{ ev.startTimeText }}</td>
+                      <td>{{ ev.endTimeText }}</td>
+                      <td>{{ ev.durationHms }}</td>
+                      <td>
+                        {% if ev.postCode and ev.mapsUrl %}
+                          <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener noreferrer">{{ ev.postCode }}</a>
+                        {% else %}
+                          {{ ev.postCode or "-" }}
+                        {% endif %}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="pairPanel">
+            <div class="muted">Depot: STATIONARY intersected with IGNITION_OFF -&gt; IGNITION_ON inside depot geofence.</div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Start (UTC)</th>
+                  <th>End (UTC)</th>
+                  <th>Duration</th>
+                  <th>Postcode</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for group in stationary_ign_off_depot_groups|default([]) %}
+                  <tr class="dateRow"><td colspan="4">{{ group.dateLabel }}</td></tr>
+                  {% for ev in group.rows %}
+                    <tr>
+                      <td>{{ ev.startTimeText }}</td>
+                      <td>{{ ev.endTimeText }}</td>
+                      <td>{{ ev.durationHms }}</td>
+                      <td>
+                        {% if ev.postCode and ev.mapsUrl %}
+                          <a href="{{ ev.mapsUrl }}" target="_blank" rel="noopener noreferrer">{{ ev.postCode }}</a>
+                        {% else %}
+                          {{ ev.postCode or "-" }}
+                        {% endif %}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
         <h3 style="margin-top: 18px; margin-bottom: 6px;">Journeys (GEOFENCE_OUT -&gt; GEOFENCE_IN)</h3>
         <table>
@@ -123,13 +240,16 @@
             </tr>
           </thead>
           <tbody>
-            {% for j in journeys %}
-              <tr>
-                <td><code>{{ j.startUtc }}</code></td>
-                <td><code>{{ j.endUtc }}</code></td>
-                <td>{{ j.durationSeconds }}</td>
-                <td>{{ j.distanceKm if j.distanceKm is not none else "-" }}</td>
-              </tr>
+            {% for group in journey_groups|default([]) %}
+              <tr class="dateRow"><td colspan="4">{{ group.dateLabel }}</td></tr>
+              {% for j in group.rows %}
+                <tr>
+                  <td>{{ j.startTimeText }}</td>
+                  <td>{{ j.endTimeText }}</td>
+                  <td>{{ j.durationHms }}</td>
+                  <td>{{ j.distanceKm if j.distanceKm is not none else "-" }}</td>
+                </tr>
+              {% endfor %}
             {% endfor %}
           </tbody>
         </table>
