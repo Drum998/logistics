@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import time as time_module
 from datetime import date, datetime, time, timedelta, timezone
 
@@ -613,5 +614,85 @@ def geofence_times():
         shift_end=shift_end.isoformat(),
         error="",
         has_results=True,
+    )
+
+
+@app.route("/raw-history", methods=["GET", "POST"])
+def raw_history():
+    date_str = request.values.get("date", datetime.now(timezone.utc).date().isoformat())
+    selected_vrn = request.values.get("vrn", "")
+
+    try:
+        settings = load_settings(require_secrets=True)
+    except ConfigError as e:
+        return render_template(
+            "raw_history.html",
+            vans=[],
+            date=date_str,
+            selected_vrn=selected_vrn,
+            error=str(e),
+            result=None,
+            raw_body="",
+        ), 400
+
+    vans = [{"vrn": vrn, "vehicleId": vid} for vrn, vid in sorted(settings.van_map.items())]
+    if not selected_vrn and vans:
+        selected_vrn = vans[0]["vrn"]
+
+    error = ""
+    result: dict | None = None
+    raw_body = ""
+
+    if request.method == "POST":
+        try:
+            d = _parse_date_yyyy_mm_dd(date_str)
+        except ValueError as e:
+            error = str(e)
+            d = None
+
+        if d is not None:
+            vehicle_id = settings.van_map.get(selected_vrn)
+            if vehicle_id is None:
+                error = "Unknown VRN (not in VAN_MAP)."
+            else:
+                query_from = (d - timedelta(days=1)).isoformat()
+                query_to = (d + timedelta(days=2)).isoformat()
+                client = RamClient(
+                    api_base_url=settings.api_base_url,
+                    token_url=settings.token_url,
+                    oauth_basic_user=settings.oauth_basic_user,
+                    oauth_basic_password=settings.oauth_basic_password,
+                    oauth_username=settings.oauth_username,
+                    oauth_password=settings.oauth_password,
+                    max_retries=settings.max_retries,
+                )
+                try:
+                    raw = client.fetch_history_raw(vehicle_id=vehicle_id, date_from=query_from, date_to=query_to)
+                    result = {
+                        "vrn": selected_vrn,
+                        "vehicleId": vehicle_id,
+                        "date": d.isoformat(),
+                        "queryFrom": query_from,
+                        "queryTo": query_to,
+                        "url": raw.get("url"),
+                        "statusCode": raw.get("statusCode"),
+                        "headers": raw.get("headers"),
+                    }
+                    body_json = raw.get("bodyJson")
+                    if body_json is not None:
+                        raw_body = json.dumps(body_json, indent=2, sort_keys=True)
+                    else:
+                        raw_body = str(raw.get("bodyText") or "")
+                except RamClientError as e:
+                    error = str(e)
+
+    return render_template(
+        "raw_history.html",
+        vans=vans,
+        date=date_str,
+        selected_vrn=selected_vrn,
+        error=error,
+        result=result,
+        raw_body=raw_body,
     )
 

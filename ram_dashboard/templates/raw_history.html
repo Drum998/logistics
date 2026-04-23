@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RAM Raw History Test</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+      header { padding: 16px 20px; border-bottom: 1px solid rgba(127,127,127,.35); }
+      main { padding: 16px 20px; max-width: 1200px; margin: 0 auto; }
+      .muted { opacity: 0.75; }
+      .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(127,127,127,.35); font-size: 12px; }
+      .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+      label { display: block; font-size: 12px; margin-bottom: 6px; }
+      input, select, button {
+        font: inherit;
+        padding: 8px 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(127,127,127,.35);
+        background: rgba(127,127,127,.08);
+      }
+      button { cursor: pointer; }
+      .err { color: #b00020; margin-top: 12px; }
+      pre {
+        margin-top: 12px;
+        padding: 12px;
+        border: 1px solid rgba(127,127,127,.35);
+        border-radius: 10px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        max-height: 70vh;
+        overflow: auto;
+      }
+      dl { display: grid; grid-template-columns: 180px 1fr; gap: 8px 12px; margin-top: 14px; }
+      dt { font-weight: 650; }
+      dd { margin: 0; word-break: break-all; }
+      textarea {
+        width: 100%;
+        min-height: 180px;
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid rgba(127,127,127,.35);
+        border-radius: 10px;
+        background: rgba(127,127,127,.08);
+        color: inherit;
+        font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        box-sizing: border-box;
+      }
+      a { color: inherit; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap: 16px;">
+        <div>
+          <div style="font-size: 18px; font-weight: 650;">RAM Raw History Test</div>
+          <div class="muted" style="font-size: 13px;">Pick a van and date to inspect the raw RAM response.</div>
+        </div>
+        <a href="/"><span class="pill">Back</span></a>
+      </div>
+    </header>
+    <main>
+      <form method="post" class="row">
+        <div>
+          <label for="vrn">Van (VRN)</label>
+          <select id="vrn" name="vrn">
+            {% for van in vans %}
+              <option value="{{ van.vrn }}" {% if van.vrn == selected_vrn %}selected{% endif %}>
+                {{ van.vrn }} (vehicleId {{ van.vehicleId }})
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div>
+          <label for="date">Shift date (D)</label>
+          <input id="date" type="date" name="date" value="{{ date }}" />
+        </div>
+        <div>
+          <button type="submit">Fetch raw response</button>
+        </div>
+      </form>
+
+      {% if error %}
+        <div class="err">{{ error }}</div>
+      {% endif %}
+
+      {% if result %}
+        <dl>
+          <dt>VRN</dt><dd>{{ result.vrn }}</dd>
+          <dt>vehicleId</dt><dd>{{ result.vehicleId }}</dd>
+          <dt>Date</dt><dd>{{ result.date }}</dd>
+          <dt>Query from</dt><dd>{{ result.queryFrom }}</dd>
+          <dt>Query to</dt><dd>{{ result.queryTo }}</dd>
+          <dt>Status code</dt><dd>{{ result.statusCode }}</dd>
+          <dt>URL</dt><dd>{{ result.url }}</dd>
+        </dl>
+        <details style="margin-top: 12px;">
+          <summary>Response headers</summary>
+          <pre>{{ result.headers | tojson(indent=2) }}</pre>
+        </details>
+        <h3 style="margin-top: 14px; margin-bottom: 6px;">Support diagnostics</h3>
+        <div class="muted">Copy this block and send to RAM support/admin.</div>
+        <button type="button" id="copyDiagnosticsBtn" style="margin-top: 8px;">Copy diagnostics</button>
+        <textarea id="diagnosticsText" readonly>{% set h = result.headers %}RAM history request diagnostics
+VRN: {{ result.vrn }}
+vehicleId: {{ result.vehicleId }}
+Date D: {{ result.date }}
+Query from: {{ result.queryFrom }}
+Query to: {{ result.queryTo }}
+Request URL: {{ result.url }}
+HTTP status: {{ result.statusCode }}
+Response Date header: {{ h.get("Date", "") }}
+X-Amz-Cf-Id: {{ h.get("X-Amz-Cf-Id", "") }}
+X-Amz-Cf-Pop: {{ h.get("X-Amz-Cf-Pop", "") }}
+X-Cache: {{ h.get("X-Cache", "") }}
+X-Application-Context: {{ h.get("X-Application-Context", "") }}</textarea>
+        <h3 style="margin-top: 14px; margin-bottom: 6px;">Raw response body</h3>
+        <pre>{{ raw_body }}</pre>
+      {% endif %}
+    </main>
+    <script>
+      const copyBtn = document.getElementById("copyDiagnosticsBtn");
+      if (copyBtn) {
+        copyBtn.addEventListener("click", async () => {
+          const textEl = document.getElementById("diagnosticsText");
+          if (!textEl) return;
+          try {
+            await navigator.clipboard.writeText(textEl.value);
+            copyBtn.textContent = "Copied";
+            setTimeout(() => {
+              copyBtn.textContent = "Copy diagnostics";
+            }, 1500);
+          } catch (_e) {
+            textEl.focus();
+            textEl.select();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

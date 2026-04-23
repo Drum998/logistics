@@ -72,6 +72,9 @@ class RamClient:
         self._cached_token_expiry_epoch: float | None = None
         self._cooldown_until_epoch: float | None = None
 
+    def _history_url(self, *, vehicle_id: int, date_from: str, date_to: str) -> str:
+        return f"{self._api_base_url}/api/v1/history/{vehicle_id}/{date_from}T00:00:00/{date_to}T00:00:00"
+
     def _get_token(self) -> str:
         now = time.time()
         if self._cached_token and self._cached_token_expiry_epoch and now < self._cached_token_expiry_epoch - 30:
@@ -115,8 +118,8 @@ class RamClient:
         self._cached_token_expiry_epoch = expiry
         return token
 
-    def fetch_history(self, *, vehicle_id: int, date_from: str, date_to: str) -> list[RamEvent]:
-        url = f"{self._api_base_url}/api/v1/history/{vehicle_id}/{date_from}T00:00:00/{date_to}T00:00:00"
+    def _request_history_with_retries(self, *, vehicle_id: int, date_from: str, date_to: str) -> requests.Response:
+        url = self._history_url(vehicle_id=vehicle_id, date_from=date_from, date_to=date_to)
         last_err: str | None = None
 
         # Retry transient failures and rate limits.
@@ -156,15 +159,33 @@ class RamClient:
                 time.sleep(min(2**attempt, 20))
                 continue
 
-            if resp.status_code >= 400:
-                # Non-retriable (auth/permission/bad request).
-                raise RamClientError(
-                    f"History request failed: HTTP {resp.status_code}: {resp.text[:500]}"
-                )
-
-            break
+            return resp
         else:
             raise RamClientError(last_err or "History request failed after retries.")
+
+    def fetch_history_raw(self, *, vehicle_id: int, date_from: str, date_to: str) -> dict[str, Any]:
+        resp = self._request_history_with_retries(vehicle_id=vehicle_id, date_from=date_from, date_to=date_to)
+        body_text = resp.text
+        body_json = None
+        try:
+            body_json = resp.json()
+        except ValueError:
+            body_json = None
+        return {
+            "url": self._history_url(vehicle_id=vehicle_id, date_from=date_from, date_to=date_to),
+            "statusCode": resp.status_code,
+            "headers": dict(resp.headers),
+            "bodyText": body_text,
+            "bodyJson": body_json,
+        }
+
+    def fetch_history(self, *, vehicle_id: int, date_from: str, date_to: str) -> list[RamEvent]:
+        resp = self._request_history_with_retries(vehicle_id=vehicle_id, date_from=date_from, date_to=date_to)
+        if resp.status_code >= 400:
+            # Non-retriable (auth/permission/bad request).
+            raise RamClientError(
+                f"History request failed: HTTP {resp.status_code}: {resp.text[:500]}"
+            )
 
         try:
             data = resp.json()

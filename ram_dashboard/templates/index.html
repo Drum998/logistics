@@ -97,7 +97,10 @@
           <div style="font-size: 18px; font-weight: 650;">Logistics RAM Dashboard</div>
           <div class="muted" style="font-size: 13px;">Shift window: 18:00 (D) to 06:00 (D+1) UTC</div>
         </div>
-        <div class="pill">{{ van_count }} vans configured</div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <a href="/raw-history"><span class="pill">Raw RAM test</span></a>
+          <div class="pill">{{ van_count }} vans configured</div>
+        </div>
       </div>
     </header>
 
