@@ -12,5 +12,7 @@ services:
       - RAM_TOKEN_URL=${RAM_TOKEN_URL:-https://auth.qaifn.co.uk/oauth/token}
       - OVERSPEED_KPH_TOLERANCE=${OVERSPEED_KPH_TOLERANCE:-10}
     env_file:
-      # Create this file locally (do not commit secrets).
+      # Create this file locally (do not commit secrets). It must include the
+      # RAM settings plus DB_HOST, DB_USER, DB_PASSWORD, and DB_DATABASE.
+      # DB_PORT is optional and defaults to 3306.
       - ./ram_dashboard/.env

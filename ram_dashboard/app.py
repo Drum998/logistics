@@ -7,7 +7,8 @@ from datetime import date, datetime, time, timedelta, timezone
 from flask import Flask, jsonify, render_template, request
 from werkzeug.exceptions import HTTPException
 
-from .config import ConfigError, load_settings
+from .config import ConfigError, load_db_settings, load_settings
+from .driver_behaviour_store import DriverBehaviourStore
 from .metrics import compute_geofence_inside_seconds, compute_metrics_for_shift, extract_overspeed_events
 from .ram_client import RamClient, RamClientError
 
@@ -614,6 +615,66 @@ def geofence_times():
         shift_end=shift_end.isoformat(),
         error="",
         has_results=True,
+    )
+
+
+def _driver_behaviour_dashboard_payload() -> dict:
+    settings = load_db_settings()
+    store = DriverBehaviourStore(settings)
+    trend_days_raw = request.values.get("trend_days", "14")
+    try:
+        trend_days = int(trend_days_raw)
+    except ValueError:
+        trend_days = 14
+    return store.get_dashboard(
+        date_from=request.values.get("date_from") or None,
+        date_to=request.values.get("date_to") or None,
+        query=request.values.get("q") or None,
+        trend_days=trend_days,
+    )
+
+
+@app.get("/api/driver-behaviour")
+def api_driver_behaviour():
+    try:
+        payload = _driver_behaviour_dashboard_payload()
+    except ConfigError as e:
+        return jsonify({"error": str(e)}), 400
+    return jsonify(payload)
+
+
+@app.get("/driver-behaviour")
+def driver_behaviour():
+    try:
+        payload = _driver_behaviour_dashboard_payload()
+        error = ""
+    except ConfigError as e:
+        payload = {
+            "period": {"dateFrom": request.values.get("date_from", ""), "dateTo": request.values.get("date_to", "")},
+            "periods": [],
+            "summary": {},
+            "leaderboard": [],
+            "trends": [],
+            "visuals": {
+                "riskDistribution": [],
+                "behaviourMix": [],
+                "trendRows": [],
+                "priorityCards": [],
+                "topDriverCards": [],
+            },
+            "dataQualityWarnings": [],
+            "errors": [],
+        }
+        error = str(e)
+
+    return render_template(
+        "driver_behaviour.html",
+        data=payload,
+        error=error,
+        selected_date_from=request.values.get("date_from", payload.get("period", {}).get("dateFrom", "")),
+        selected_date_to=request.values.get("date_to", payload.get("period", {}).get("dateTo", "")),
+        selected_q=request.values.get("q", ""),
+        selected_trend_days=request.values.get("trend_days", "14"),
     )
 
 

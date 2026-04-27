@@ -46,3 +46,4 @@ Thumbs.db
 
 # Local data and cache folders
 data_cache/
+data/

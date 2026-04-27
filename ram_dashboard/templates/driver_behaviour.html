@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Driver Behaviour Dashboard</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+      header { padding: 16px 20px; border-bottom: 1px solid rgba(127,127,127,.35); }
+      main { padding: 16px 20px; max-width: 1400px; margin: 0 auto; }
+      .muted { opacity: 0.75; }
+      .err { color: #b00020; margin-top: 12px; }
+      .warn { border: 1px solid rgba(245,176,65,.5); background: rgba(245,176,65,.12); border-radius: 10px; padding: 10px 12px; margin-top: 10px; }
+      .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(127,127,127,.35); font-size: 12px; }
+      .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-top: 14px; }
+      .card { border: 1px solid rgba(127,127,127,.35); border-radius: 12px; padding: 12px; background: rgba(127,127,127,.08); }
+      .card .value { font-size: 22px; font-weight: 700; margin-top: 4px; }
+      .visualGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; margin-top: 14px; }
+      .visualPanel { border: 1px solid rgba(127,127,127,.35); border-radius: 14px; padding: 14px; background: rgba(127,127,127,.07); }
+      .panelTitle { font-weight: 700; margin-bottom: 4px; }
+      .stack { display: flex; height: 34px; border-radius: 999px; overflow: hidden; border: 1px solid rgba(127,127,127,.25); margin-top: 12px; background: rgba(127,127,127,.10); }
+      .stackSeg { min-width: 2px; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 700; }
+      .legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 8px; margin-top: 12px; }
+      .legendItem { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+      .swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+      .barList { display: grid; gap: 10px; margin-top: 12px; }
+      .barRow { display: grid; grid-template-columns: 130px 1fr 70px; gap: 10px; align-items: center; }
+      .barTrack { min-height: 16px; border-radius: 999px; background: rgba(127,127,127,.15); overflow: hidden; border: 1px solid rgba(127,127,127,.18); }
+      .barFill { min-height: 16px; border-radius: 999px; }
+      .driverCards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 12px; }
+      .driverCard { border: 1px solid rgba(127,127,127,.35); border-radius: 14px; padding: 12px; background: rgba(127,127,127,.06); }
+      .cardLink { color: inherit; display: block; text-decoration: none; }
+      .cardLink:hover .driverCard, .cardLink:focus .driverCard { border-color: rgba(122,162,255,.75); box-shadow: 0 0 0 3px rgba(122,162,255,.18); }
+      .priorityCard { border-width: 2px; background: linear-gradient(180deg, rgba(255,107,107,.10), rgba(127,127,127,.06)); }
+      .reasonList { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+      .reason { border: 1px solid rgba(127,127,127,.35); border-radius: 999px; padding: 3px 8px; font-size: 12px; background: rgba(127,127,127,.10); }
+      .miniMetric { display: grid; grid-template-columns: 90px 1fr 54px; gap: 8px; align-items: center; margin-top: 8px; font-size: 13px; }
+      .stackSeg.low, .swatch.low { background: #2ecc71; }
+      .stackSeg.medium, .swatch.medium { background: #f5b041; }
+      .stackSeg.high, .stackSeg.anomaly, .swatch.high, .swatch.anomaly { background: #ff6b6b; }
+      .speeding { background: #7aa2ff; }
+      .idling { background: #f5b041; }
+      .braking { background: #ff6b6b; }
+      .acceleration { background: #b084ff; }
+      .breaches { background: #ff8f70; }
+      .score { background: #b084ff; }
+      label { display: block; font-size: 12px; margin-bottom: 6px; }
+      input, select, button {
+        font: inherit;
+        padding: 8px 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(127,127,127,.35);
+        background: rgba(127,127,127,.08);
+        color: inherit;
+      }
+      button { cursor: pointer; }
+      table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+      th, td { border-bottom: 1px solid rgba(127,127,127,.25); text-align: left; padding: 8px 6px; font-size: 13px; vertical-align: top; }
+      th { opacity: .85; }
+      a { color: inherit; }
+      .risk { font-weight: 650; }
+      .risk.low { color: #2ecc71; }
+      .risk.medium { color: #f5b041; }
+      .risk.high, .risk.anomaly { color: #ff6b6b; }
+      .scroll { overflow-x: auto; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap: 16px;">
+        <div>
+          <div style="font-size: 18px; font-weight: 650;">Driver Behaviour Dashboard</div>
+          <div class="muted" style="font-size: 13px;">MySQL reporting data from driver behaviour, speed league, and carbon report tables.</div>
+        </div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <a href="/"><span class="pill">Back to RAM dashboard</span></a>
+          <a href="/api/driver-behaviour?date_from={{ data.period.dateFrom }}&date_to={{ data.period.dateTo }}"><span class="pill">JSON</span></a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <form method="get" action="/driver-behaviour" class="row">
+        <div>
+          <label for="date_from">Date from</label>
+          <input id="date_from" name="date_from" type="date" value="{{ selected_date_from }}" />
+        </div>
+        <div>
+          <label for="date_to">Date to</label>
+          <input id="date_to" name="date_to" type="date" value="{{ selected_date_to }}" />
+        </div>
+        <div>
+          <label for="q">Driver or registration</label>
+          <input id="q" name="q" type="search" value="{{ selected_q }}" placeholder="Optional filter" />
+        </div>
+        <div>
+          <button type="submit">Run report</button>
+        </div>
+      </form>
+
+      {% if data.periods %}
+        <div class="muted" style="margin-top: 8px;">
+          Latest period: <code>{{ data.periods[0].dateFrom }}</code> to <code>{{ data.periods[0].dateTo }}</code>.
+          Leave filters blank to use the latest period.
+        </div>
+      {% endif %}
+
+      {% if error %}
+        <div class="err">{{ error }}</div>
+      {% endif %}
+
+      {% for warning in data.dataQualityWarnings %}
+        <div class="warn">{{ warning }}</div>
+      {% endfor %}
+
+      <h2 style="margin-top: 20px; margin-bottom: 4px;">Vans To Concentrate On</h2>
+      <div class="muted">Start here. These vans are ranked by risk band, score, events per 100 miles, and speed points.</div>
+      <div class="driverCards">
+        {% for r in data.visuals.priorityCards %}
+          <a class="cardLink" href="/van/{{ r.registration|urlencode }}?date={{ data.period.dateFrom }}" aria-label="Open RAM detail for {{ r.registration }} on {{ data.period.dateFrom }}">
+            <article class="driverCard priorityCard">
+              <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
+                <div>
+                  <div style="font-size: 22px; font-weight:800;">{{ r.registration }}</div>
+                  <div class="muted">{{ r.driver }} | {{ r.miles }} miles</div>
+                </div>
+                <span class="risk {{ r.risk.band }}">{{ r.risk.label }}</span>
+              </div>
+              <div class="reasonList" aria-label="Reasons to review this van">
+                {% for reason in r.reasons %}
+                  <span class="reason">{{ reason }}</span>
+                {% endfor %}
+              </div>
+              <div class="miniMetric">
+                <div>Risk score</div>
+                <div class="barTrack"><div class="barFill score" style="width: {{ r.scoreWidth }}%;"></div></div>
+                <div>{{ r.score }}</div>
+              </div>
+              <div class="miniMetric">
+                <div>Events/100</div>
+                <div class="barTrack"><div class="barFill speeding" style="width: {{ r.eventsWidth }}%;"></div></div>
+                <div>{{ r.eventsPer100Miles|default("-", true) }}</div>
+              </div>
+              <div class="muted" style="margin-top:8px;">
+                Speeding: {{ r.speeding }} | Idling: {{ r.idling }} | Harsh: {{ r.harshEvents }} | Breaches: {{ r.totalBreaches }}
+              </div>
+              <div style="margin-top: 10px;"><span class="pill">Open RAM detail for {{ data.period.dateFrom }}</span></div>
+            </article>
+          </a>
+        {% else %}
+          <div class="muted">No van issues found for this period/filter.</div>
+        {% endfor %}
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="muted">Period</div>
+          <div class="value" style="font-size: 17px;">{{ data.period.dateFrom }} to {{ data.period.dateTo }}</div>
+          <div class="muted">{{ data.summary.behaviourRows|default(0, true) }} behaviour rows</div>
+        </div>
+        <div class="card">
+          <div class="muted">Drivers / Vans</div>
+          <div class="value">{{ data.summary.drivers|default(0, true) }} / {{ data.summary.vehicles|default(0, true) }}</div>
+          <div class="muted">{{ data.summary.miles|default(0, true) }} miles</div>
+        </div>
+        <div class="card">
+          <div class="muted">Avg Risk Score</div>
+          <div class="value">{{ data.summary.avgScore|default("-", true) }}</div>
+          <div class="muted">Lower appears better in this source</div>
+        </div>
+        <div class="card">
+          <div class="muted">Speeding</div>
+          <div class="value">{{ data.summary.speeding|default(0, true) }}</div>
+          <div class="muted">{{ data.summary.speedingPer100Miles|default("-", true) }} per 100 miles</div>
+        </div>
+        <div class="card">
+          <div class="muted">Speed League</div>
+          <div class="value">{{ data.summary.totalBreaches|default(0, true) }}</div>
+          <div class="muted">{{ data.summary.pointsAccrued|default(0, true) }} points, max {{ data.summary.maxSpeed|default("-", true) }} mph</div>
+        </div>
+        <div class="card">
+          <div class="muted">CO2 Output</div>
+          <div class="value">{{ data.summary.co2Output|default("-", true) }}</div>
+          <div class="muted">{{ data.summary.co2PerMile|default("-", true) }} per mile</div>
+        </div>
+        <div class="card">
+          <div class="muted">Risk Flags</div>
+          <div class="value">{{ data.summary.highRiskDrivers|default(0, true) }}</div>
+          <div class="muted">{{ data.summary.anomalyDrivers|default(0, true) }} low-mileage anomalies</div>
+        </div>
+      </div>
+
+      <div class="visualGrid">
+        <section class="visualPanel" aria-labelledby="risk-distribution-title">
+          <div class="panelTitle" id="risk-distribution-title">Van Risk Distribution</div>
+          <div class="muted">A quick view of how many vans need attention in this period.</div>
+          <div class="stack" role="img" aria-label="Van risk distribution">
+            {% for r in data.visuals.riskDistribution %}
+              <div class="stackSeg {{ r.band }}" style="width: {{ r.width }}%;" title="{{ r.label }}: {{ r.count }}">
+                {% if r.count %}{{ r.count }}{% endif %}
+              </div>
+            {% endfor %}
+          </div>
+          <div class="legend">
+            {% for r in data.visuals.riskDistribution %}
+              <div class="legendItem"><span class="swatch {{ r.band }}"></span>{{ r.label }}: {{ r.count }}</div>
+            {% endfor %}
+          </div>
+        </section>
+
+        <section class="visualPanel" aria-labelledby="behaviour-mix-title">
+          <div class="panelTitle" id="behaviour-mix-title">Behaviour Mix</div>
+          <div class="muted">Which behaviour type is driving the total event count.</div>
+          <div class="barList">
+            {% for r in data.visuals.behaviourMix %}
+              <div class="barRow">
+                <div>{{ r.label }}</div>
+                <div class="barTrack"><div class="barFill {{ r.key }}" style="width: {{ r.width }}%;"></div></div>
+                <div>{{ r.value }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+      </div>
+
+      <h3 style="margin-top: 20px; margin-bottom: 4px;">Driver Leaderboard</h3>
+      <div class="muted">Detailed figures for checking. The van cards at the top are intended as the primary review view.</div>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Driver</th>
+              <th>Registration</th>
+              <th>Risk</th>
+              <th>Miles</th>
+              <th>Score</th>
+              <th>Events / 100 miles</th>
+              <th>Speeding</th>
+              <th>Idling</th>
+              <th>Harsh</th>
+              <th>Breaches</th>
+              <th>Points / mile</th>
+              <th>Max speed</th>
+              <th>CO2 / mile</th>
+              <th>Speed zones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in data.leaderboard %}
+              <tr>
+                <td>{{ r.driver }}</td>
+                <td><a href="/van/{{ r.registration|urlencode }}?date={{ data.period.dateFrom }}">{{ r.registration }}</a></td>
+                <td><span class="risk {{ r.risk.band }}">{{ r.risk.label }}</span></td>
+                <td>{{ r.miles }}</td>
+                <td>{{ r.score }}</td>
+                <td>{{ r.eventsPer100Miles|default("-", true) }}</td>
+                <td>{{ r.speeding }} ({{ r.speedingPer100Miles|default("-", true) }}/100 mi)</td>
+                <td>{{ r.idling }}</td>
+                <td>{{ r.harshEvents }} ({{ r.harshPer100Miles|default("-", true) }}/100 mi)</td>
+                <td>{{ r.totalBreaches }}</td>
+                <td>{{ r.pointsPerMile|default("-", true) }}</td>
+                <td>{{ r.maxSpeed|default("-", true) }}</td>
+                <td>{{ r.co2PerMile|default("-", true) }}</td>
+                <td>
+                  20: {{ r.zone20|default("-", true) }}<br />
+                  30: {{ r.zone30|default("-", true) }}<br />
+                  40: {{ r.zone40|default("-", true) }}<br />
+                  50: {{ r.zone50|default("-", true) }}<br />
+                  60: {{ r.zone60|default("-", true) }}<br />
+                  70: {{ r.zone70|default("-", true) }}
+                </td>
+              </tr>
+            {% else %}
+              <tr><td colspan="14" class="muted">No rows found for this period/filter.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

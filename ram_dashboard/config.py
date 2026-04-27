@@ -21,6 +21,15 @@ class Settings:
     max_retries: int
 
 
+@dataclass(frozen=True)
+class DbSettings:
+    host: str
+    port: int
+    user: str
+    password: str
+    database: str
+
+
 def _getenv_required(name: str) -> str:
     v = os.getenv(name)
     if v is None or v.strip() == "":
@@ -99,5 +108,15 @@ def load_settings(require_secrets: bool = True) -> Settings:
         overspeed_kph_tolerance=overspeed_tol,
         request_delay_ms=request_delay_ms,
         max_retries=max_retries,
+    )
+
+
+def load_db_settings() -> DbSettings:
+    return DbSettings(
+        host=_getenv_required("DB_HOST"),
+        port=_getenv_int("DB_PORT", 3306),
+        user=_getenv_required("DB_USER"),
+        password=_getenv_required("DB_PASSWORD"),
+        database=os.getenv("DB_DATABASE", "flyingfish_aux") or "flyingfish_aux",
     )
 
