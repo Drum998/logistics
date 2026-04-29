@@ -36,6 +36,10 @@
       .priorityCard { border-width: 2px; background: linear-gradient(180deg, rgba(255,107,107,.10), rgba(127,127,127,.06)); }
       .reasonList { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
       .reason { border: 1px solid rgba(127,127,127,.35); border-radius: 999px; padding: 3px 8px; font-size: 12px; background: rgba(127,127,127,.10); }
+      .assignmentBox { border: 1px solid rgba(127,127,127,.28); border-radius: 10px; padding: 8px 10px; margin-top: 10px; background: rgba(127,127,127,.08); }
+      .assignmentTitle { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; opacity: .75; }
+      .assignmentMain { margin-top: 3px; font-weight: 700; }
+      .assignmentMeta { margin-top: 2px; font-size: 13px; opacity: .78; }
       .miniMetric { display: grid; grid-template-columns: 90px 1fr 54px; gap: 8px; align-items: center; margin-top: 8px; font-size: 13px; }
       .stackSeg.low, .swatch.low { background: #2ecc71; }
       .stackSeg.medium, .swatch.medium { background: #f5b041; }
@@ -146,6 +150,27 @@
               <div class="muted" style="margin-top:8px;">
                 Speeding: {{ r.speeding }} | Idling: {{ r.idling }} | Harsh: {{ r.harshEvents }} | Breaches: {{ r.totalBreaches }}
               </div>
+              {% if r.assignments %}
+                {% for assignment in r.assignments[:2] %}
+                  <div class="assignmentBox">
+                    <div class="assignmentTitle">{{ assignment.role }}</div>
+                    <div class="assignmentMain">{{ assignment.routeName }}</div>
+                    <div class="assignmentMeta">{{ assignment.driverText }}</div>
+                    {% if assignment.swapLocation %}
+                      <div class="assignmentMeta">Swap: {{ assignment.swapLocation }}</div>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+                {% if r.assignments|length > 2 %}
+                  <div class="muted" style="margin-top:6px;">+{{ r.assignments|length - 2 }} more assignment(s)</div>
+                {% endif %}
+              {% else %}
+                <div class="assignmentBox">
+                  <div class="assignmentTitle">Route assignment</div>
+                  <div class="assignmentMain">No route assignment found</div>
+                  <div class="assignmentMeta">No matching route export row for {{ data.period.dateFrom }}</div>
+                </div>
+              {% endif %}
               <div style="margin-top: 10px;"><span class="pill">Open RAM detail for {{ data.period.dateFrom }}</span></div>
             </article>
           </a>
@@ -243,6 +268,7 @@
               <th>Breaches</th>
               <th>Points / mile</th>
               <th>Max speed</th>
+              <th>Route assignment</th>
               <th>CO2 / mile</th>
               <th>Speed zones</th>
             </tr>
@@ -262,6 +288,16 @@
                 <td>{{ r.totalBreaches }}</td>
                 <td>{{ r.pointsPerMile|default("-", true) }}</td>
                 <td>{{ r.maxSpeed|default("-", true) }}</td>
+                <td>
+                  {% if r.assignments %}
+                    {% for assignment in r.assignments %}
+                      <strong>{{ assignment.role }}</strong>: {{ assignment.routeName }}<br />
+                      <span class="muted">{{ assignment.driverText }}</span><br />
+                    {% endfor %}
+                  {% else %}
+                    <span class="muted">No route assignment found</span>
+                  {% endif %}
+                </td>
                 <td>{{ r.co2PerMile|default("-", true) }}</td>
                 <td>
                   20: {{ r.zone20|default("-", true) }}<br />
@@ -273,7 +309,7 @@
                 </td>
               </tr>
             {% else %}
-              <tr><td colspan="14" class="muted">No rows found for this period/filter.</td></tr>
+              <tr><td colspan="15" class="muted">No rows found for this period/filter.</td></tr>
             {% endfor %}
           </tbody>
         </table>

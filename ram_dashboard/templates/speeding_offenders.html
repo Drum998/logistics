@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Speeding Offenders Report</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+      header { padding: 16px 20px; border-bottom: 1px solid rgba(127,127,127,.35); }
+      main { padding: 16px 20px; max-width: 1500px; margin: 0 auto; }
+      .muted { opacity: .75; }
+      .err { color: #b00020; margin-top: 12px; }
+      .warn { border: 1px solid rgba(245,176,65,.5); background: rgba(245,176,65,.12); border-radius: 10px; padding: 10px 12px; margin-top: 10px; }
+      .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(127,127,127,.35); font-size: 12px; }
+      .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 14px; }
+      .card { border: 1px solid rgba(127,127,127,.35); border-radius: 12px; padding: 12px; background: rgba(127,127,127,.08); }
+      .card .value { font-size: 22px; font-weight: 700; margin-top: 4px; }
+      label { display: block; font-size: 12px; margin-bottom: 6px; }
+      input, button {
+        font: inherit;
+        padding: 8px 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(127,127,127,.35);
+        background: rgba(127,127,127,.08);
+        color: inherit;
+      }
+      button { cursor: pointer; }
+      table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+      th, td { border-bottom: 1px solid rgba(127,127,127,.25); text-align: left; padding: 8px 6px; font-size: 13px; vertical-align: top; }
+      th { opacity: .85; }
+      th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
+      th.sortable::after { content: " <>"; opacity: .45; font-size: 11px; }
+      th.sortable[aria-sort="ascending"]::after { content: " ^"; opacity: .85; }
+      th.sortable[aria-sort="descending"]::after { content: " v"; opacity: .85; }
+      a { color: inherit; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 12px; }
+      .scroll { overflow-x: auto; }
+      .sectionTitle { margin-top: 22px; margin-bottom: 4px; }
+      .shared { color: #f5b041; font-weight: 650; }
+      .unmatched { color: #ff6b6b; font-weight: 650; }
+      .direct { color: #2ecc71; font-weight: 650; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap: 16px;">
+        <div>
+          <div style="font-size: 18px; font-weight: 650;">Speeding Offenders Report</div>
+          <div class="muted" style="font-size: 13px;">Persistent speeding by real route driver, not van short code.</div>
+        </div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <a href="/"><span class="pill">Back to RAM dashboard</span></a>
+          <a href="/driver-behaviour"><span class="pill">Driver behaviour</span></a>
+          <a href="/api/speeding-offenders?date_from={{ data.range.dateFrom }}&date_to={{ data.range.dateTo }}"><span class="pill">JSON</span></a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <form method="get" action="/speeding-offenders" class="row">
+        <div>
+          <label for="date_from">Date from</label>
+          <input id="date_from" name="date_from" type="date" value="{{ selected_date_from }}" />
+        </div>
+        <div>
+          <label for="date_to">Date to</label>
+          <input id="date_to" name="date_to" type="date" value="{{ selected_date_to }}" />
+        </div>
+        <div>
+          <button type="submit">Run report</button>
+        </div>
+      </form>
+
+      {% if data.periods %}
+        <div class="muted" style="margin-top: 8px;">
+          Latest period: <code>{{ data.periods[0].dateFrom }}</code> to <code>{{ data.periods[0].dateTo }}</code>.
+          Leave filters blank to use the latest period.
+        </div>
+      {% endif %}
+
+      {% if error %}
+        <div class="err">{{ error }}</div>
+      {% endif %}
+
+      {% for warning in data.dataQualityWarnings %}
+        <div class="warn">{{ warning }}</div>
+      {% endfor %}
+
+      <div class="cards">
+        <div class="card">
+          <div class="muted">Date range</div>
+          <div class="value" style="font-size: 17px;">{{ data.range.dateFrom }} to {{ data.range.dateTo }}</div>
+          <div class="muted">{{ data.range.rowCount|default(0, true) }} behaviour row(s)</div>
+        </div>
+        <div class="card">
+          <div class="muted">Assigned drivers</div>
+          <div class="value">{{ data.summary.assignedDrivers|default(0, true) }}</div>
+          <div class="muted">{{ data.summary.vehicles|default(0, true) }} vans with speeding</div>
+        </div>
+        <div class="card">
+          <div class="muted">Speeding events</div>
+          <div class="value">{{ data.summary.speeding|default(0, true) }}</div>
+          <div class="muted">{{ data.summary.speedingRows|default(0, true) }} van/period rows</div>
+        </div>
+        <div class="card">
+          <div class="muted">Speed league</div>
+          <div class="value">{{ data.summary.totalBreaches|default(0, true) }}</div>
+          <div class="muted">{{ data.summary.pointsAccrued|default(0, true) }} points accrued</div>
+        </div>
+        <div class="card">
+          <div class="muted">Attribution checks</div>
+          <div class="value">{{ data.summary.unmatchedRows|default(0, true) }}</div>
+          <div class="muted">{{ data.summary.sharedRows|default(0, true) }} shared row(s)</div>
+        </div>
+      </div>
+
+      <h2 class="sectionTitle">Persistent Offenders</h2>
+      <div class="muted">Ranked by repeated speeding presence, then points, breaches, speeding events, and max speed.</div>
+      <div class="scroll">
+        <table class="sortableTable">
+          <thead>
+            <tr>
+              <th>Driver</th>
+              <th>Van periods</th>
+              <th>Speeding</th>
+              <th>Speeding / 100km</th>
+              <th>Breaches</th>
+              <th>Points</th>
+              <th>Max speed</th>
+              <th>Miles</th>
+              <th>Vans</th>
+              <th>Routes</th>
+              <th>Shared</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in data.offenders %}
+              <tr>
+                <td>
+                  <strong>{{ r.driverName }}</strong><br />
+                  <span class="muted"><code>{{ r.driverCode }}</code></span>
+                </td>
+                <td>{{ r.vanPeriods }}</td>
+                <td>{{ r.speeding }}{% if r.speedingPer100Miles %}<br /><span class="muted">{{ r.speedingPer100Miles }}/100 mi</span>{% endif %}</td>
+                <td>{{ r.speedingPer100Km|default("-", true) }}</td>
+                <td>{{ r.totalBreaches }}</td>
+                <td>{{ r.pointsAccrued }}</td>
+                <td>{{ r.maxSpeed|default("-", true) }}</td>
+                <td>{{ r.miles }}</td>
+                <td>{{ r.vehicles|join(", ") }}</td>
+                <td>{{ r.routes|join(", ") }}</td>
+                <td>{{ r.sharedAttributions }}</td>
+              </tr>
+            {% else %}
+              <tr><td colspan="11" class="muted">No assigned driver speeding rows found for this range.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="sectionTitle">Worst Van/Date Evidence</h2>
+      <div class="muted">The source driver column is shown as the van short code; real drivers come from route assignments.</div>
+      <div class="scroll">
+        <table class="sortableTable">
+          <thead>
+            <tr>
+              <th>Van</th>
+              <th>Period</th>
+              <th>Real driver attribution</th>
+              <th>Route assignment</th>
+              <th>Van code</th>
+              <th>Speeding</th>
+              <th>Speeding / 100km</th>
+              <th>Breaches</th>
+              <th>Points</th>
+              <th>Max speed</th>
+              <th>Zones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in data.evidenceRows %}
+              <tr>
+                <td><a href="/van/{{ r.registration|urlencode }}?date={{ r.vanDetailDate }}">{{ r.registration }}</a></td>
+                <td>{{ r.periodLabel }}</td>
+                <td>
+                  <span class="{% if r.attribution == 'Shared' %}shared{% elif r.attribution == 'Unmatched' %}unmatched{% else %}direct{% endif %}">{{ r.attribution }}</span><br />
+                  {{ r.realDriverText }}
+                </td>
+                <td>
+                  {% if r.assignments %}
+                    {% for assignment in r.assignments %}
+                      <strong>{{ assignment.despatchDate }}</strong> - {{ assignment.role }}: {{ assignment.routeName }}<br />
+                      <span class="muted">{{ assignment.driverText }}</span><br />
+                    {% endfor %}
+                  {% else %}
+                    <span class="muted">No matching route assignment found</span>
+                  {% endif %}
+                </td>
+                <td><code>{{ r.vehicleCode }}</code></td>
+                <td>{{ r.speeding }}{% if r.speedingPer100Miles %}<br /><span class="muted">{{ r.speedingPer100Miles }}/100 mi</span>{% endif %}</td>
+                <td>{{ r.speedingPer100Km|default("-", true) }}</td>
+                <td>{{ r.totalBreaches }}</td>
+                <td>{{ r.pointsAccrued }}</td>
+                <td>{{ r.maxSpeed|default("-", true) }}</td>
+                <td>{{ r.zoneText }}</td>
+              </tr>
+            {% else %}
+              <tr><td colspan="11" class="muted">No speeding evidence found for this range.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script>
+      function cellSortValue(cell) {
+        const text = (cell.textContent || "").trim();
+        const numeric = text.replace(/,/g, "").match(/^-?\d+(\.\d+)?/);
+        if (numeric) {
+          return { type: "number", value: Number(numeric[0]) };
+        }
+        const time = Date.parse(text);
+        if (!Number.isNaN(time) && /^\d{4}-\d{2}-\d{2}/.test(text)) {
+          return { type: "number", value: time };
+        }
+        return { type: "text", value: text.toLowerCase() };
+      }
+
+      function compareCells(aCell, bCell, direction) {
+        const a = cellSortValue(aCell);
+        const b = cellSortValue(bCell);
+        let result;
+        if (a.type === "number" && b.type === "number") {
+          result = a.value - b.value;
+        } else {
+          result = String(a.value).localeCompare(String(b.value), undefined, { numeric: true, sensitivity: "base" });
+        }
+        return direction === "ascending" ? result : -result;
+      }
+
+      document.querySelectorAll(".sortableTable").forEach((table) => {
+        const headers = Array.from(table.querySelectorAll("thead th"));
+        headers.forEach((header, index) => {
+          header.classList.add("sortable");
+          header.tabIndex = 0;
+          header.setAttribute("aria-sort", "none");
+
+          const sort = () => {
+            const current = header.getAttribute("aria-sort");
+            const direction = current === "ascending" ? "descending" : "ascending";
+            headers.forEach((h) => h.setAttribute("aria-sort", "none"));
+            header.setAttribute("aria-sort", direction);
+
+            const tbody = table.querySelector("tbody");
+            const rows = Array.from(tbody.querySelectorAll("tr"));
+            rows
+              .map((row, originalIndex) => ({ row, originalIndex }))
+              .sort((a, b) => {
+                const result = compareCells(a.row.children[index], b.row.children[index], direction);
+                return result || a.originalIndex - b.originalIndex;
+              })
+              .forEach(({ row }) => tbody.appendChild(row));
+          };
+
+          header.addEventListener("click", sort);
+          header.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              sort();
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

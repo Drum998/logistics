@@ -634,10 +634,28 @@ def _driver_behaviour_dashboard_payload() -> dict:
     )
 
 
+def _speeding_offenders_payload() -> dict:
+    settings = load_db_settings()
+    store = DriverBehaviourStore(settings)
+    return store.get_speeding_offenders_report(
+        date_from=request.values.get("date_from") or None,
+        date_to=request.values.get("date_to") or None,
+    )
+
+
 @app.get("/api/driver-behaviour")
 def api_driver_behaviour():
     try:
         payload = _driver_behaviour_dashboard_payload()
+    except ConfigError as e:
+        return jsonify({"error": str(e)}), 400
+    return jsonify(payload)
+
+
+@app.get("/api/speeding-offenders")
+def api_speeding_offenders():
+    try:
+        payload = _speeding_offenders_payload()
     except ConfigError as e:
         return jsonify({"error": str(e)}), 400
     return jsonify(payload)
@@ -675,6 +693,32 @@ def driver_behaviour():
         selected_date_to=request.values.get("date_to", payload.get("period", {}).get("dateTo", "")),
         selected_q=request.values.get("q", ""),
         selected_trend_days=request.values.get("trend_days", "14"),
+    )
+
+
+@app.get("/speeding-offenders")
+def speeding_offenders():
+    try:
+        payload = _speeding_offenders_payload()
+        error = ""
+    except ConfigError as e:
+        payload = {
+            "range": {"dateFrom": request.values.get("date_from", ""), "dateTo": request.values.get("date_to", ""), "rowCount": 0},
+            "periods": [],
+            "summary": {},
+            "offenders": [],
+            "evidenceRows": [],
+            "dataQualityWarnings": [],
+            "errors": [],
+        }
+        error = str(e)
+
+    return render_template(
+        "speeding_offenders.html",
+        data=payload,
+        error=error,
+        selected_date_from=request.values.get("date_from", payload.get("range", {}).get("dateFrom", "")),
+        selected_date_to=request.values.get("date_to", payload.get("range", {}).get("dateTo", "")),
     )
 
 
