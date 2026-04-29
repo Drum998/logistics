@@ -22,6 +22,8 @@ def handle_exception(e: Exception):
         if isinstance(e, HTTPException):
             return jsonify({"error": e.name, "details": e.description}), e.code
         return jsonify({"error": "Internal Server Error", "details": str(e)}), 500
+    if isinstance(e, HTTPException):
+        return e
     raise e
 
 
