@@ -35,6 +35,7 @@ class DriverBehaviourStore:
             user=self.settings.user,
             password=self.settings.password,
             database=self.settings.database,
+            use_pure=True,
         )
         try:
             cur = conn.cursor(dictionary=True)
