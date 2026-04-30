@@ -1,0 +1,4922 @@
+[
+    {
+        "id": 48293,
+        "registration": "WU17 ESF",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "ESF",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Red",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": 149387,
+            "driver_name": "ESF",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3974393,
+                "longitude": -4.9254143
+            },
+            "rawLocation": {
+                "latitude": 50.3975371,
+                "longitude": -4.9257470
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2021-08-23 10:28:47"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48293,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 397995.748,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48294,
+        "registration": "WL15DWK",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3977362,
+                "longitude": -4.9248677
+            },
+            "rawLocation": {
+                "latitude": 50.3974216,
+                "longitude": -4.9250861
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2019-01-14 15:46:56"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48294,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 119406.113,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48296,
+        "registration": "WT16SNX",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Yellow",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3971126,
+                "longitude": -4.9248754
+            },
+            "rawLocation": {
+                "latitude": 50.3974228,
+                "longitude": -4.9250428
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2021-06-22 13:46:45"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48296,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 350490.368,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48298,
+        "registration": "WK16CWR",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Grey",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3975853,
+                "longitude": -4.9253714
+            },
+            "rawLocation": {
+                "latitude": 50.3976316,
+                "longitude": -4.9255288
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2019-06-10 10:38:32"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48298,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 253549.256,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48299,
+        "registration": "WK65NFT",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Green",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "STATIONARY",
+            "location": {
+                "latitude": 50.3970741,
+                "longitude": -4.9249469
+            },
+            "rawLocation": {
+                "latitude": 50.3974408,
+                "longitude": -4.9251448
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2021-06-22 13:21:27"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48299,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 202377.38,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48301,
+        "registration": "WK16 CXD ",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Grey",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "STATIONARY",
+            "location": {
+                "latitude": 51.2694069,
+                "longitude": -2.9192373
+            },
+            "rawLocation": {
+                "latitude": 51.2696123,
+                "longitude": -2.9191943
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2019-06-11 09:04:22"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48301,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 268225.377,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48302,
+        "registration": "WR66ZDU",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "ZDU",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Red",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": 232905,
+            "driver_name": "ZDU",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3970574,
+                "longitude": -4.9249777
+            },
+            "rawLocation": {
+                "latitude": 50.3973871,
+                "longitude": -4.9251556
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2020-11-20 11:12:34"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48302,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 399293.87,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48303,
+        "registration": "AK61YDU",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Red",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3975900,
+                "longitude": -4.9253700
+            },
+            "rawLocation": {
+                "latitude": 50.3975480,
+                "longitude": -4.9252206
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2019-06-10 09:01:57"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48303,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 47709.94,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48304,
+        "registration": "WK16CWT",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Brown",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3970866,
+                "longitude": -4.9249236
+            },
+            "rawLocation": {
+                "latitude": 50.3974150,
+                "longitude": -4.9251008
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2019-06-10 09:52:54"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48304,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 217122.344,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48305,
+        "registration": "WL15DWG",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "White",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3970400,
+                "longitude": -4.9250100
+            },
+            "rawLocation": {
+                "latitude": 50.3972941,
+                "longitude": -4.9252083
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2019-01-14 15:43:22"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48305,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 111107.884,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48306,
+        "registration": "WU17EJX",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Green",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3975776,
+                "longitude": -4.9253737
+            },
+            "rawLocation": {
+                "latitude": 50.3976040,
+                "longitude": -4.9254635
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2021-08-23 09:57:54"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48306,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 469797.443,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48307,
+        "registration": "WJ18 EHU",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOST",
+            "location": {
+                "latitude": 55.8754840,
+                "longitude": -4.2443332
+            },
+            "rawLocation": {
+                "latitude": 55.8755048,
+                "longitude": -4.2443126
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2025-10-16 10:54:36"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48307,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 601995.531,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48308,
+        "registration": "WU17EVW",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "EVW",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Green",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": 149630,
+            "driver_name": "EVW",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3971227,
+                "longitude": -4.9248568
+            },
+            "rawLocation": {
+                "latitude": 50.3974760,
+                "longitude": -4.9250475
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2021-08-23 09:41:46"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48308,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 448616.598,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 48309,
+        "registration": "VO61 ONN",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "ONN",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Red",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 50,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": 191850,
+            "driver_name": "ONN",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3974861,
+                "longitude": -4.9254005
+            },
+            "rawLocation": {
+                "latitude": 50.3975416,
+                "longitude": -4.9255891
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2021-08-23 10:14:42"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 48309,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 76175.446,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 60696,
+        "registration": "WU68 CYY",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "CYY",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": 0.00,
+            "driver_id": 139289,
+            "driver_name": "CYY",
+            "driver_mobile": ""
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3971124,
+                "longitude": -4.9248759
+            },
+            "rawLocation": {
+                "latitude": 50.3974750,
+                "longitude": -4.9250716
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2022-04-11 09:33:46"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 60696,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 455807.792,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 302817,
+        "registration": "HX68 OWZ",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "OWZ",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 192229,
+            "driver_name": "OWZ",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOST",
+            "location": {
+                "latitude": 50.3975900,
+                "longitude": -4.9253700
+            },
+            "rawLocation": {
+                "latitude": 50.3975461,
+                "longitude": -4.9252171
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2023-08-07 11:59:25"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 302817,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 618771.595,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 302818,
+        "registration": "HX68 OWY",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "OWY",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 192228,
+            "driver_name": "OWY",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3971192,
+                "longitude": -4.9248632
+            },
+            "rawLocation": {
+                "latitude": 50.3974705,
+                "longitude": -4.9250528
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2019-09-02 09:40:43"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 302818,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 195585.277,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 310518,
+        "registration": "HX19 XEP",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XEP",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Brown",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231430,
+            "driver_name": "XEP",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.2703600,
+                "longitude": -2.2092300
+            },
+            "rawLocation": {
+                "latitude": 51.2701241,
+                "longitude": -2.2105545
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2023-01-12 17:50:00"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 310518,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 584409.1,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 310520,
+        "registration": "HX19 XES",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XES",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Brown",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231432,
+            "driver_name": "XES",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOST",
+            "location": {
+                "latitude": 50.3970400,
+                "longitude": -4.9250100
+            },
+            "rawLocation": {
+                "latitude": 50.3974818,
+                "longitude": -4.9250463
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2022-08-25 08:09:33"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 310520,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 737948.247,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 310546,
+        "registration": "HX19 XEO-removed-2026-01-12T13:56:57.659",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XEO",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Brown",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231429,
+            "driver_name": "XEO",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3971141,
+                "longitude": -4.9249122
+            },
+            "rawLocation": {
+                "latitude": 50.3973973,
+                "longitude": -4.9250701
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2025-07-04 10:13:38"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 310546,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 988140.743,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 310550,
+        "registration": "HX19 ",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XER",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Brown",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231431,
+            "driver_name": "XER",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": null,
+            "location": null,
+            "rawLocation": null,
+            "sufficientGpsAccuracy": true,
+            "event_date": null
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 310550,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": null,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 310619,
+        "registration": "HN22 0CS",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "OCS",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "White",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 190200,
+            "driver_name": "OCS",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3394773,
+                "longitude": -4.8797836
+            },
+            "rawLocation": {
+                "latitude": 50.3391275,
+                "longitude": -4.8800486
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2022-08-10 07:39:09"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 310619,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 699082.111,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 314833,
+        "registration": "WO19VPU-removed-2025-10-27T12:21:16.567",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "VPU",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Brown",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 228426,
+            "driver_name": "VPU",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3970880,
+                "longitude": -4.9249590
+            },
+            "rawLocation": {
+                "latitude": 50.3972870,
+                "longitude": -4.9250695
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2025-07-04 10:13:37"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 314833,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 436766.921,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 315099,
+        "registration": "WO19 VPT-removed-2026-01-13T10:34:46.415",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "VPT",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Brown",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 228425,
+            "driver_name": "VPT",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3970376,
+                "longitude": -4.9250494
+            },
+            "rawLocation": {
+                "latitude": 50.3971840,
+                "longitude": -4.9251311
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-01-08 14:55:41"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 315099,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 624277.683,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 322162,
+        "registration": "EA69TLK-removed-2025-10-27T12:16:27.111",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "TLK",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Red",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 221702,
+            "driver_name": "TLK",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3970942,
+                "longitude": -4.9249479
+            },
+            "rawLocation": {
+                "latitude": 50.3973645,
+                "longitude": -4.9250990
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2025-07-04 16:09:03"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 322162,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 507635.201,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 322163,
+        "registration": "HX69WBW",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WBW",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Red",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229430,
+            "driver_name": "WBW",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3971016,
+                "longitude": -4.9249346
+            },
+            "rawLocation": {
+                "latitude": 50.3974341,
+                "longitude": -4.9251203
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2025-07-04 10:13:44"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 322163,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 575899.394,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 322164,
+        "registration": "HX69WBU",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WBU",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Red",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229428,
+            "driver_name": "WBU",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3970874,
+                "longitude": -4.9249222
+            },
+            "rawLocation": {
+                "latitude": 50.3974430,
+                "longitude": -4.9251141
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2023-04-17 10:31:27"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 322164,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 327595.927,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 322165,
+        "registration": "HX69WBV",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WBV",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Red",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229429,
+            "driver_name": "WBV",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOST",
+            "location": {
+                "latitude": 50.3975900,
+                "longitude": -4.9253700
+            },
+            "rawLocation": {
+                "latitude": 50.3975573,
+                "longitude": -4.9250601
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2023-08-07 12:02:13"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 322165,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 463615.633,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 352888,
+        "registration": "HX21 XMU",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XMU",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231463,
+            "driver_name": "XMU",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "STATIONARY",
+            "location": {
+                "latitude": 50.3970772,
+                "longitude": -4.9249784
+            },
+            "rawLocation": {
+                "latitude": 50.3974866,
+                "longitude": -4.9252071
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2025-07-04 10:19:45"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 352888,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 653317.613,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 352895,
+        "registration": "HX21 XMV-removed-2026-01-13T10:33:49.549",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XMV",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231465,
+            "driver_name": "XMV",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3964471,
+                "longitude": -4.9268501
+            },
+            "rawLocation": {
+                "latitude": 50.3968091,
+                "longitude": -4.9267178
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-01-05 08:57:33"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 352895,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 837227.343,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 356694,
+        "registration": "HK21 ULE-removed-2026-01-13T10:37:37.294",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "ULE",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 225509,
+            "driver_name": "ULE",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3971297,
+                "longitude": -4.9248842
+            },
+            "rawLocation": {
+                "latitude": 50.3974606,
+                "longitude": -4.9250685
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-01-05 09:34:10"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 356694,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 990944.41,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 356695,
+        "registration": "HX21 XMW-removed-2026-01-13T10:32:50.877",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XMW",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231466,
+            "driver_name": "XMW",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IMPACT_DETECTED",
+            "location": {
+                "latitude": 50.3964491,
+                "longitude": -4.9268555
+            },
+            "rawLocation": {
+                "latitude": 50.3969105,
+                "longitude": -4.9266865
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-01-05 09:09:01"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 356695,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 928520.139,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 356696,
+        "registration": "0000000",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOST",
+            "location": {
+                "latitude": 50.3975750,
+                "longitude": -4.9253744
+            },
+            "rawLocation": {
+                "latitude": 50.3976270,
+                "longitude": -4.9255513
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2022-12-17 15:09:49"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 356696,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 273924.065,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 356699,
+        "registration": "HX21 XMT-removed-2026-01-13T10:36:05.499",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XMT",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "LCV",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231462,
+            "driver_name": "XMT",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "TOW_ALERT",
+            "location": {
+                "latitude": 50.3964248,
+                "longitude": -4.9267890
+            },
+            "rawLocation": {
+                "latitude": 50.3968138,
+                "longitude": -4.9266466
+            },
+            "sufficientGpsAccuracy": false,
+            "event_date": "2026-01-05 09:02:27"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 356699,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 942848.757,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 362982,
+        "registration": "HX71 WMM-removed-2026-01-14T12:04:21.571",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WMM",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 230543,
+            "driver_name": "WMM",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IMPACT_DETECTED",
+            "location": {
+                "latitude": 50.2836087,
+                "longitude": -4.9839408
+            },
+            "rawLocation": {
+                "latitude": 50.2844216,
+                "longitude": -4.9838816
+            },
+            "sufficientGpsAccuracy": false,
+            "event_date": "2026-01-05 09:30:28"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 362982,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 503851.658,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 362983,
+        "registration": "HX71 WMO-removed-2026-01-14T11:40:51.315",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WMO",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 230544,
+            "driver_name": "WMO",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOW",
+            "location": {
+                "latitude": 50.3964142,
+                "longitude": -4.9267600
+            },
+            "rawLocation": {
+                "latitude": 50.3969016,
+                "longitude": -4.9265816
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-01-05 09:01:54"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 362983,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 571201.093,
+        "batteryLevel": 83,
+        "batteryPercentage": null
+    },
+    {
+        "id": 362984,
+        "registration": "HX71 WML",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WML",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 230542,
+            "driver_name": "WML",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3972908,
+                "longitude": -4.9245955
+            },
+            "rawLocation": {
+                "latitude": 50.3974100,
+                "longitude": -4.9246616
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-01-05 09:29:28"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 362984,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 510074.305,
+        "batteryLevel": 99,
+        "batteryPercentage": null
+    },
+    {
+        "id": 379823,
+        "registration": "HX22 VNS",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "VNS",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 228102,
+            "driver_name": "VNS",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3971164,
+                "longitude": -4.9249082
+            },
+            "rawLocation": {
+                "latitude": 50.3975141,
+                "longitude": -4.9251301
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2025-07-04 10:47:07"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 379823,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 417056.726,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 384605,
+        "registration": "4634464886",
+        "vehicle_type": "Car",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3970847,
+                "longitude": -4.9249272
+            },
+            "rawLocation": {
+                "latitude": 50.3974336,
+                "longitude": -4.9251155
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2022-05-23 08:58:40"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 384605,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 0.003,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 385150,
+        "registration": "HX22 VOO",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "VOO",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 228247,
+            "driver_name": "VOO",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "DRIVING",
+            "location": {
+                "latitude": 50.4137053,
+                "longitude": -3.8335807
+            },
+            "rawLocation": {
+                "latitude": 50.4137550,
+                "longitude": -3.8335616
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 08:25:28"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 385150,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 530700.503,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 385151,
+        "registration": "HX22VOM",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "VOM",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 228246,
+            "driver_name": "VOM",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "DRIVING",
+            "location": {
+                "latitude": 50.3934028,
+                "longitude": -4.9243430
+            },
+            "rawLocation": {
+                "latitude": 50.3937116,
+                "longitude": -4.9244233
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 08:26:18"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 385151,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 554585.271,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 402274,
+        "registration": "HK22BLF",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "BLF",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "White",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 129818,
+            "driver_name": "BLF",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_RESTORED",
+            "location": {
+                "latitude": 50.3970902,
+                "longitude": -4.9249552
+            },
+            "rawLocation": {
+                "latitude": 50.3975383,
+                "longitude": -4.9252050
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-23 12:10:18"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 402274,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 463213.137,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 402275,
+        "registration": "HK22BLJ",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "BLJ",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "White",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 129819,
+            "driver_name": "BLJ",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3969820,
+                "longitude": -4.9251491
+            },
+            "rawLocation": {
+                "latitude": 50.3975516,
+                "longitude": -4.9254666
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 08:19:58"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 402275,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 452661.938,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 404374,
+        "registration": "HN22 OCS-removed-2026-01-14T12:07:59.619",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "OCS",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 190200,
+            "driver_name": "OCS",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOW",
+            "location": {
+                "latitude": 50.3971017,
+                "longitude": -4.9249345
+            },
+            "rawLocation": {
+                "latitude": 50.3973749,
+                "longitude": -4.9250866
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-01-08 13:44:12"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 404374,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 438774.825,
+        "batteryLevel": 97,
+        "batteryPercentage": null
+    },
+    {
+        "id": 419413,
+        "registration": "HX21XMZ-removed-2026-01-14T11:41:29.362",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XMZ",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231467,
+            "driver_name": "XMZ",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IMPACT_DETECTED",
+            "location": {
+                "latitude": 50.3972281,
+                "longitude": -4.9247079
+            },
+            "rawLocation": {
+                "latitude": 50.3973433,
+                "longitude": -4.9247716
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-01-05 09:23:34"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 419413,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 300199.33,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 423352,
+        "registration": "SG72 USW",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "USW",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": null,
+            "co2": null,
+            "vehicle_icon_colour": null,
+            "zone_speed_30": null,
+            "zone_speed_40": null,
+            "zone_speed_50": null,
+            "zone_speed_60": null,
+            "zone_speed_70": null,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 226555,
+            "driver_name": "USW",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:00:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:00:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3971037,
+                "longitude": -4.9249310
+            },
+            "rawLocation": {
+                "latitude": 50.3975683,
+                "longitude": -4.9251900
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 05:58:06"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 423352,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 374859.056,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 427647,
+        "registration": "HX23 WCG",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WCG",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229433,
+            "driver_name": "WCG",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOST",
+            "location": {
+                "latitude": 51.5470502,
+                "longitude": -1.8385140
+            },
+            "rawLocation": {
+                "latitude": 51.5465798,
+                "longitude": -1.8385350
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-24 13:20:26"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 427647,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 683811.709,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 430210,
+        "registration": "HX23WBN",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WBN",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229427,
+            "driver_name": "WBN",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 52.4928633,
+                "longitude": -2.0244632
+            },
+            "rawLocation": {
+                "latitude": 52.4935800,
+                "longitude": -2.0251150
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-25 05:11:00"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 430210,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "HX23WBN",
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 393819.265,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 430211,
+        "registration": "350317179653856",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": null,
+            "location": null,
+            "rawLocation": null,
+            "sufficientGpsAccuracy": false,
+            "event_date": null
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 430211,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": null,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 430212,
+        "registration": "WX23UHL",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "UHL",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 225491,
+            "driver_name": "UHL",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "DRIVING",
+            "location": {
+                "latitude": 50.4312814,
+                "longitude": -3.6780869
+            },
+            "rawLocation": {
+                "latitude": 50.4312849,
+                "longitude": -3.6780849
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 08:25:57"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 430212,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 379826.452,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 430213,
+        "registration": "WX23UHK",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "UHK",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 225490,
+            "driver_name": "UHK",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 52.4929098,
+                "longitude": -2.0244119
+            },
+            "rawLocation": {
+                "latitude": 52.4932916,
+                "longitude": -2.0247516
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-25 04:44:02"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 430213,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 355926.048,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 432108,
+        "registration": "350612075437929",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": null,
+            "location": null,
+            "rawLocation": null,
+            "sufficientGpsAccuracy": false,
+            "event_date": null
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 432108,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": null,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 436800,
+        "registration": "HX23WDJ",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WDJ",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229437,
+            "driver_name": "WDJ",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3970635,
+                "longitude": -4.9250029
+            },
+            "rawLocation": {
+                "latitude": 50.3974850,
+                "longitude": -4.9252383
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-24 11:31:18"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 436800,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": 87.0,
+        "wasteLevel": null,
+        "odometer": 332026.556,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 436801,
+        "registration": "HN23XKU",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XKU",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231456,
+            "driver_name": "XKU",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470504,
+                "longitude": -1.8385201
+            },
+            "rawLocation": {
+                "latitude": 51.5462683,
+                "longitude": -1.8385550
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 07:00:45"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 436801,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": 173.0,
+        "wasteLevel": null,
+        "odometer": 314741.917,
+        "batteryLevel": 99,
+        "batteryPercentage": null
+    },
+    {
+        "id": 436802,
+        "registration": "HN23AUO",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "AUO",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 126718,
+            "driver_name": "AUO",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3980356,
+                "longitude": -4.9248620
+            },
+            "rawLocation": {
+                "latitude": 50.3976333,
+                "longitude": -4.9253683
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 05:37:26"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 436802,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": 0.0,
+        "wasteLevel": null,
+        "odometer": 378524.678,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 441007,
+        "registration": "350544506936783",
+        "vehicle_type": "Car",
+        "vehicle_driver": {
+            "id": null,
+            "name": "",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": null,
+            "driver_name": "",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3974994,
+                "longitude": -4.9253967
+            },
+            "rawLocation": {
+                "latitude": 50.3975533,
+                "longitude": -4.9255800
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2023-08-14 08:35:43"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 441007,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 0.0,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 441081,
+        "registration": "HN23 XML",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "XML",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 231461,
+            "driver_name": "XML",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOST",
+            "location": {
+                "latitude": 50.3980356,
+                "longitude": -4.9248620
+            },
+            "rawLocation": {
+                "latitude": 50.3976370,
+                "longitude": -4.9254493
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 07:52:29"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 441081,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 958519.624,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 441082,
+        "registration": "HK23 ELO",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "ELO",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 148894,
+            "driver_name": "ELO",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOST",
+            "location": {
+                "latitude": 51.5470481,
+                "longitude": -1.8384675
+            },
+            "rawLocation": {
+                "latitude": 51.5465435,
+                "longitude": -1.8384895
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-20 15:03:41"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 441082,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 747812.16,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 451516,
+        "registration": "HX73 WFG",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WFG",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229677,
+            "driver_name": "WFG",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470494,
+                "longitude": -1.8384969
+            },
+            "rawLocation": {
+                "latitude": 51.5465316,
+                "longitude": -1.8385200
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 08:04:05"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 451516,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": 43.0,
+        "wasteLevel": null,
+        "odometer": 92093.056,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 451517,
+        "registration": "HX23 WEK",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WEK",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229468,
+            "driver_name": "WEK",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 52.4927128,
+                "longitude": -2.0246286
+            },
+            "rawLocation": {
+                "latitude": 52.4934666,
+                "longitude": -2.0253150
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-25 04:12:38"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 451517,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": 216.0,
+        "wasteLevel": null,
+        "odometer": 290769.655,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 451518,
+        "registration": "HX73WEO",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WEO",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229558,
+            "driver_name": "WEO",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470562,
+                "longitude": -1.8386499
+            },
+            "rawLocation": {
+                "latitude": 51.5463383,
+                "longitude": -1.8386816
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-25 05:34:19"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 451518,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": 260.0,
+        "wasteLevel": null,
+        "odometer": 287021.221,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 451519,
+        "registration": "HT23FOF",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "FOF",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 151201,
+            "driver_name": "FOF",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470541,
+                "longitude": -1.8386030
+            },
+            "rawLocation": {
+                "latitude": 51.5462933,
+                "longitude": -1.8386366
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-25 05:23:31"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 451519,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": 0.0,
+        "wasteLevel": null,
+        "odometer": 274547.473,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 451520,
+        "registration": "HX73 WEU",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WEU",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229673,
+            "driver_name": "WEU",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "DRIVING",
+            "location": {
+                "latitude": 51.5470594,
+                "longitude": -1.8387207
+            },
+            "rawLocation": {
+                "latitude": 51.5463350,
+                "longitude": -1.8387533
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 08:25:33"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 451520,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": "",
+        "fuelLevel": 172.0,
+        "wasteLevel": null,
+        "odometer": 259776.178,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 451521,
+        "registration": "HX23 WEP",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "WEP",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 229559,
+            "driver_name": "WEP",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.6012799,
+                "longitude": -1.7389988
+            },
+            "rawLocation": {
+                "latitude": 51.6016216,
+                "longitude": -1.7394283
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-23 17:38:22"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 451521,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": 87.0,
+        "wasteLevel": null,
+        "odometer": 272802.813,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 459361,
+        "registration": "HK73 FFJ",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "FFJ",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 150492,
+            "driver_name": "FFJ",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470649,
+                "longitude": -1.8388433
+            },
+            "rawLocation": {
+                "latitude": 51.5464666,
+                "longitude": -1.8388700
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 07:18:00"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 459361,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": 0.0,
+        "wasteLevel": null,
+        "odometer": 266616.971,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 459362,
+        "registration": "HK73 FFH",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "FFH",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 150490,
+            "driver_name": "FFH",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOW",
+            "location": {
+                "latitude": 50.1453851,
+                "longitude": -5.4762474
+            },
+            "rawLocation": {
+                "latitude": 50.1452450,
+                "longitude": -5.4762633
+            },
+            "sufficientGpsAccuracy": false,
+            "event_date": "2026-02-24 06:51:34"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 459362,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": 173.0,
+        "wasteLevel": null,
+        "odometer": 175198.983,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 468201,
+        "registration": "HX24 UMW",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "UMW",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 225530,
+            "driver_name": "UMW",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470640,
+                "longitude": -1.8388240
+            },
+            "rawLocation": {
+                "latitude": 51.5464816,
+                "longitude": -1.8388500
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-25 06:39:30"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 468201,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": 173.0,
+        "wasteLevel": null,
+        "odometer": 259902.768,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 468202,
+        "registration": "HX24 UMU",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "UMU",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 225527,
+            "driver_name": "UMU",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470643,
+                "longitude": -1.8388310
+            },
+            "rawLocation": {
+                "latitude": 51.5464816,
+                "longitude": -1.8388566
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 07:02:49"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 468202,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": "",
+        "notes": null,
+        "fuelLevel": 43.0,
+        "wasteLevel": null,
+        "odometer": 260555.579,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 518462,
+        "registration": "WP25 KRF",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "KRF",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 172409,
+            "driver_name": "KRF",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3971286,
+                "longitude": -4.9248863
+            },
+            "rawLocation": {
+                "latitude": 50.3975866,
+                "longitude": -4.9251416
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-24 12:23:35"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 518462,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": 86.0,
+        "wasteLevel": null,
+        "odometer": 112644.809,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 518463,
+        "registration": "WP25 KRJ",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "KRJ",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 172528,
+            "driver_name": "KRJ",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470621,
+                "longitude": -1.8387808
+            },
+            "rawLocation": {
+                "latitude": 51.5464516,
+                "longitude": -1.8388083
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 07:08:48"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 518463,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": 87.0,
+        "wasteLevel": null,
+        "odometer": 107619.449,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 518464,
+        "registration": "WP25 KFT",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "KFT",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 171619,
+            "driver_name": "KFT",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470504,
+                "longitude": -1.8385182
+            },
+            "rawLocation": {
+                "latitude": 51.5462933,
+                "longitude": -1.8385516
+            },
+            "sufficientGpsAccuracy": false,
+            "event_date": "2026-04-27 07:58:34"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 518464,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": 130.0,
+        "wasteLevel": null,
+        "odometer": 78617.366,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 518465,
+        "registration": "WP25 KFR",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "KFR",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 171618,
+            "driver_name": "KFR",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 50.3980356,
+                "longitude": -4.9248620
+            },
+            "rawLocation": {
+                "latitude": 50.3976716,
+                "longitude": -4.9254300
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-25 04:59:38"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 518465,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": 131.0,
+        "wasteLevel": null,
+        "odometer": 83794.361,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 518466,
+        "registration": "WP25 KRG",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "KRG",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 172410,
+            "driver_name": "KRG",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470615,
+                "longitude": -1.8387684
+            },
+            "rawLocation": {
+                "latitude": 51.5462866,
+                "longitude": -1.8388033
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 07:06:20"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 518466,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": 174.0,
+        "wasteLevel": null,
+        "odometer": 76729.966,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 518467,
+        "registration": "WP25 KFJ",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "KFJ",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 171617,
+            "driver_name": "KFJ",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470621,
+                "longitude": -1.8387822
+            },
+            "rawLocation": {
+                "latitude": 51.5464850,
+                "longitude": -1.8388083
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 07:05:20"
+        },
+        "label": null,
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 518467,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": 259.0,
+        "wasteLevel": null,
+        "odometer": 64513.115,
+        "batteryLevel": 100,
+        "batteryPercentage": null
+    },
+    {
+        "id": 519639,
+        "registration": "WP25KAA",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "KAA",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 169573,
+            "driver_name": "KAA",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "EXT_POWER_LOST",
+            "location": {
+                "latitude": 51.5470559,
+                "longitude": -1.8386433
+            },
+            "rawLocation": {
+                "latitude": 51.5463243,
+                "longitude": -1.8386756
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-25 10:09:45"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 519639,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 728445.811,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    },
+    {
+        "id": 519653,
+        "registration": "WP25 KNF",
+        "vehicle_type": "Van",
+        "vehicle_driver": {
+            "id": null,
+            "name": "KNF",
+            "phoneNumber": "",
+            "mobileNumber": null,
+            "rfidList": null
+        },
+        "vehicle_settings": {
+            "vehicle_class": "PLG",
+            "co2": 0,
+            "vehicle_icon_colour": "Blue",
+            "zone_speed_30": 30,
+            "zone_speed_40": 40,
+            "zone_speed_50": 50,
+            "zone_speed_60": 60,
+            "zone_speed_70": 70,
+            "running_cost": null,
+            "private_cost": null,
+            "driver_id": 172286,
+            "driver_name": "KNF",
+            "driver_mobile": null
+        },
+        "vehicle_working_hours": {
+            "working_hours_mf_start": "00:00:00",
+            "working_hours_mf_end": "00:00:00",
+            "working_hours_sat_start": "00:00:00",
+            "working_hours_sat_end": "00:01:00",
+            "working_hours_sun_start": "00:00:00",
+            "working_hours_sun_end": "00:01:00",
+            "working_hours_active": false
+        },
+        "vehicle_status": {
+            "last_event": "IGNITION_OFF",
+            "location": {
+                "latitude": 51.5470662,
+                "longitude": -1.8388743
+            },
+            "rawLocation": {
+                "latitude": 51.5462891,
+                "longitude": -1.8389093
+            },
+            "sufficientGpsAccuracy": true,
+            "event_date": "2026-04-27 07:17:02"
+        },
+        "label": {
+            "id": 5224,
+            "label_text": "Flyingfish"
+        },
+        "division_id": null,
+        "engine_hours": {
+            "vehicle_id": 519653,
+            "enabled": false,
+            "engine_time_hours": null
+        },
+        "alias": null,
+        "notes": null,
+        "fuelLevel": null,
+        "wasteLevel": null,
+        "odometer": 484180.088,
+        "batteryLevel": null,
+        "batteryPercentage": null
+    }
+]

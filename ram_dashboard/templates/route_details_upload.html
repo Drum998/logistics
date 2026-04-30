@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Route Details Upload</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+      header { padding: 16px 20px; border-bottom: 1px solid rgba(127,127,127,.35); }
+      main { padding: 16px 20px; max-width: 1400px; margin: 0 auto; }
+      .muted { opacity: .75; }
+      .err { color: #b00020; margin-top: 12px; }
+      .ok { color: #2e7d32; margin-top: 12px; }
+      .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(127,127,127,.35); font-size: 12px; }
+      .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 14px; }
+      .card { border: 1px solid rgba(127,127,127,.35); border-radius: 12px; padding: 12px; background: rgba(127,127,127,.08); }
+      .card .value { font-size: 24px; font-weight: 700; margin-top: 4px; }
+      label { display: block; font-size: 12px; margin-bottom: 6px; }
+      input, button {
+        font: inherit;
+        padding: 8px 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(127,127,127,.35);
+        background: rgba(127,127,127,.08);
+        color: inherit;
+      }
+      button { cursor: pointer; }
+      table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+      th, td { border-bottom: 1px solid rgba(127,127,127,.25); text-align: left; padding: 8px 6px; font-size: 13px; vertical-align: top; }
+      th { opacity: .85; }
+      a { color: inherit; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 12px; }
+      .scroll { overflow-x: auto; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap: 16px;">
+        <div>
+          <div style="font-size: 18px; font-weight: 650;">Route Details Upload</div>
+          <div class="muted" style="font-size: 13px;">Upload DV CSV files into <code>flyingfish_aux.route_details_export</code>.</div>
+        </div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <a href="/"><span class="pill">Back to RAM dashboard</span></a>
+          <a href="/driver-behaviour"><span class="pill">Driver behaviour</span></a>
+          <a href="/speeding-offenders"><span class="pill">Speeding offenders</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <form method="post" action="/route-details-upload" enctype="multipart/form-data" class="row">
+        <div>
+          <label for="file">DV CSV file</label>
+          <input id="file" name="file" type="file" accept=".csv,text/csv" required />
+        </div>
+        <div>
+          <button type="submit">Upload route details</button>
+        </div>
+      </form>
+
+      <p class="muted">
+        The import keeps the route assignment columns from the DV export and appends only rows that do not already exist.
+        A duplicate is a row where all imported columns match.
+      </p>
+
+      {% if error %}
+        <div class="err">{{ error }}</div>
+      {% endif %}
+
+      {% if summary %}
+        <div class="ok">Import complete.</div>
+        <div class="cards">
+          <div class="card">
+            <div class="muted">Uploaded rows</div>
+            <div class="value">{{ summary.uploaded_rows }}</div>
+          </div>
+          <div class="card">
+            <div class="muted">Inserted rows</div>
+            <div class="value">{{ summary.inserted_rows }}</div>
+          </div>
+          <div class="card">
+            <div class="muted">Skipped duplicates</div>
+            <div class="value">{{ summary.skipped_duplicate_rows }}</div>
+          </div>
+          <div class="card">
+            <div class="muted">Invalid rows</div>
+            <div class="value">{{ summary.invalid_rows }}</div>
+          </div>
+        </div>
+
+        {% if summary.errors %}
+          <h2 style="margin-top: 22px;">Invalid Rows</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Line</th>
+                <th>Error</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in summary.errors %}
+                <tr>
+                  <td>{{ item.line_number }}</td>
+                  <td>{{ item.message }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% endif %}
+
+        {% if summary.preview_rows %}
+          <h2 style="margin-top: 22px;">Parsed Preview</h2>
+          <div class="muted">Showing up to the first 10 valid transformed rows.</div>
+          <div class="scroll">
+            <table>
+              <thead>
+                <tr>
+                  {% for column in columns %}
+                    <th>{{ column }}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in summary.preview_rows %}
+                  <tr>
+                    {% for column in columns %}
+                      <td>{{ row[column] }}</td>
+                    {% endfor %}
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+      {% endif %}
+    </main>
+  </body>
+</html>

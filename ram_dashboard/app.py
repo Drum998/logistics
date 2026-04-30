@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import io
 import time as time_module
 from datetime import date, datetime, time, timedelta, timezone
 
@@ -11,6 +12,12 @@ from .config import ConfigError, load_db_settings, load_settings
 from .driver_behaviour_store import DriverBehaviourStore
 from .metrics import compute_geofence_inside_seconds, compute_metrics_for_shift, extract_overspeed_events
 from .ram_client import RamClient, RamClientError
+from .route_details_import import (
+    ROUTE_DETAILS_COLUMNS,
+    RouteDetailsImportError,
+    RouteDetailsImporter,
+    parse_route_details_csv,
+)
 
 
 app = Flask(__name__)
@@ -57,6 +64,35 @@ def api_vans():
     settings = load_settings(require_secrets=False)
     vans = [{"vrn": vrn, "vehicleId": vid} for vrn, vid in sorted(settings.van_map.items())]
     return jsonify({"vans": vans})
+
+
+@app.route("/route-details-upload", methods=["GET", "POST"])
+def route_details_upload():
+    error = ""
+    summary = None
+
+    if request.method == "POST":
+        upload = request.files.get("file")
+        if upload is None or not upload.filename:
+            error = "Choose a DV CSV file to upload."
+        else:
+            try:
+                settings = load_db_settings()
+                text_file = io.TextIOWrapper(upload.stream, encoding="utf-8-sig", newline="")
+                parse_result = parse_route_details_csv(text_file)
+                importer = RouteDetailsImporter(settings)
+                summary = importer.import_rows(parse_result)
+            except (ConfigError, RouteDetailsImportError, UnicodeDecodeError) as e:
+                error = str(e)
+            except Exception as e:
+                error = f"Import failed: {e}"
+
+    return render_template(
+        "route_details_upload.html",
+        columns=ROUTE_DETAILS_COLUMNS,
+        error=error,
+        summary=summary,
+    )
 
 
 @app.post("/api/metrics")

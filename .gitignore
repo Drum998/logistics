@@ -45,5 +45,5 @@ Thumbs.db
 /ram_dashboard/.env 
 
 # Local data and cache folders
-data_cache/
-data/
+# data_cache/
+# data/
