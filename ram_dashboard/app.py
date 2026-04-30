@@ -682,6 +682,7 @@ def driver_behaviour():
                 "priorityCards": [],
                 "topDriverCards": [],
             },
+            "sourceDataChecks": [],
             "dataQualityWarnings": [],
             "errors": [],
         }
@@ -710,6 +711,7 @@ def speeding_offenders():
             "summary": {},
             "offenders": [],
             "evidenceRows": [],
+            "sourceDataChecks": [],
             "dataQualityWarnings": [],
             "errors": [],
         }

@@ -57,10 +57,17 @@ class DriverBehaviourStore:
         with self._cursor() as cur:
             periods = self._list_periods(cur)
             period = self._resolve_period(cur, date_from=date_from, date_to=date_to, periods=periods)
+            source_data = self._source_data_checks(
+                cur,
+                date_from=str(period["dateFrom"]),
+                date_to=str(period["dateTo"]),
+                mode="period",
+            )
             leaderboard = self._leaderboard(cur, period=period, query=query)
             summary = self._summary(cur, period=period, leaderboard=leaderboard)
             trends = self._trends(cur, limit=trend_days)
             warnings = self._data_quality_warnings(cur, period=period, leaderboard=leaderboard)
+            warnings = source_data["warnings"] + warnings
             visuals = self._visuals(summary=summary, leaderboard=leaderboard, trends=trends)
 
         return {
@@ -70,6 +77,7 @@ class DriverBehaviourStore:
             "leaderboard": leaderboard,
             "trends": trends,
             "visuals": visuals,
+            "sourceDataChecks": source_data["checks"],
             "dataQualityWarnings": warnings,
             "errors": [],
         }
@@ -83,6 +91,12 @@ class DriverBehaviourStore:
         with self._cursor() as cur:
             periods = self._list_periods(cur)
             report_range = self._resolve_report_range(cur, date_from=date_from, date_to=date_to, periods=periods)
+            source_data = self._source_data_checks(
+                cur,
+                date_from=str(report_range["dateFrom"]),
+                date_to=str(report_range["dateTo"]),
+                mode="range",
+            )
             rows = self._speeding_report_rows(cur, report_range=report_range)
             assignments_by_vrn = self._route_assignments_by_registration(
                 cur,
@@ -213,6 +227,7 @@ class DriverBehaviourStore:
             warnings.append(f"{missing_speed_rows} behaviour row(s) had no matching speed-league row.")
         if low_mileage_rows:
             warnings.append(f"{low_mileage_rows} speeding row(s) were under {LOW_DISTANCE_MILES:g} mile; rate metrics may be inflated.")
+        warnings = source_data["warnings"] + warnings
 
         return {
             "range": report_range,
@@ -230,6 +245,7 @@ class DriverBehaviourStore:
             },
             "offenders": offender_rows,
             "evidenceRows": evidence_rows[:500],
+            "sourceDataChecks": source_data["checks"],
             "dataQualityWarnings": warnings,
             "errors": [],
         }
@@ -322,6 +338,109 @@ class DriverBehaviourStore:
         )
         row_count = as_int((cur.fetchone() or {}).get("rowCount"))
         return {"dateFrom": date_from, "dateTo": date_to, "rowCount": row_count}
+
+    def _source_data_checks(self, cur: Any, *, date_from: str, date_to: str, mode: str) -> dict[str, list[Any]]:
+        if mode == "period":
+            sources = [
+                {
+                    "key": "driverBehaviour",
+                    "label": "Driver behaviour",
+                    "table": "flyingfish_aux.driver_behaviour",
+                    "sql": """
+                        SELECT COUNT(*) AS rowCount
+                        FROM flyingfish_aux.driver_behaviour
+                        WHERE Date_From = %s AND Date_To = %s
+                    """,
+                },
+                {
+                    "key": "speedLeague",
+                    "label": "Speed league",
+                    "table": "flyingfish_aux.speed_league",
+                    "sql": """
+                        SELECT COUNT(*) AS rowCount
+                        FROM flyingfish_aux.speed_league
+                        WHERE Date_From = %s AND Date_To = %s
+                    """,
+                },
+                {
+                    "key": "carbonReport",
+                    "label": "Carbon report",
+                    "table": "flyingfish_aux.carbon_report",
+                    "sql": """
+                        SELECT COUNT(*) AS rowCount
+                        FROM flyingfish_aux.carbon_report
+                        WHERE Date_from = %s AND Date_to = %s
+                    """,
+                },
+                {
+                    "key": "routeDetails",
+                    "label": "Route assignments",
+                    "table": "flyingfish_aux.route_details_export",
+                    "sql": """
+                        SELECT COUNT(*) AS rowCount
+                        FROM flyingfish_aux.route_details_export
+                        WHERE despatchdate BETWEEN %s AND %s
+                    """,
+                },
+            ]
+            date_label = f"{date_from} to {date_to}"
+        else:
+            sources = [
+                {
+                    "key": "driverBehaviour",
+                    "label": "Driver behaviour",
+                    "table": "flyingfish_aux.driver_behaviour",
+                    "sql": """
+                        SELECT COUNT(*) AS rowCount
+                        FROM flyingfish_aux.driver_behaviour
+                        WHERE Date_From <= %s AND Date_To >= %s
+                    """,
+                },
+                {
+                    "key": "speedLeague",
+                    "label": "Speed league",
+                    "table": "flyingfish_aux.speed_league",
+                    "sql": """
+                        SELECT COUNT(*) AS rowCount
+                        FROM flyingfish_aux.speed_league
+                        WHERE Date_From <= %s AND Date_To >= %s
+                    """,
+                },
+                {
+                    "key": "routeDetails",
+                    "label": "Route assignments",
+                    "table": "flyingfish_aux.route_details_export",
+                    "sql": """
+                        SELECT COUNT(*) AS rowCount
+                        FROM flyingfish_aux.route_details_export
+                        WHERE despatchdate BETWEEN %s AND %s
+                    """,
+                },
+            ]
+            date_label = f"{date_from} to {date_to}"
+
+        checks: list[dict[str, Any]] = []
+        warnings: list[str] = []
+        for source in sources:
+            params = (date_to, date_from) if mode == "range" and source["key"] != "routeDetails" else (date_from, date_to)
+            cur.execute(source["sql"], params)
+            row_count = as_int((cur.fetchone() or {}).get("rowCount"))
+            check = {
+                "key": source["key"],
+                "label": source["label"],
+                "table": source["table"],
+                "dateFrom": date_from,
+                "dateTo": date_to,
+                "rowCount": row_count,
+                "status": "available" if row_count else "missing",
+            }
+            checks.append(check)
+            if not row_count:
+                warnings.append(
+                    f"No {source['label'].lower()} data found in {source['table']} "
+                    f"for {date_label}; report results may be incomplete."
+                )
+        return {"checks": checks, "warnings": warnings}
 
     def _speeding_report_rows(self, cur: Any, *, report_range: dict[str, Any]) -> list[dict[str, Any]]:
         cur.execute(

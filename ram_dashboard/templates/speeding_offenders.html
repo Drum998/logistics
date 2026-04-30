@@ -38,6 +38,9 @@
       code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 12px; }
       .scroll { overflow-x: auto; }
       .sectionTitle { margin-top: 22px; margin-bottom: 4px; }
+      .sourceChecks { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .sourceCheck { border: 1px solid rgba(127,127,127,.35); border-radius: 999px; padding: 5px 10px; font-size: 12px; background: rgba(127,127,127,.08); }
+      .sourceCheck.missing { border-color: rgba(255,107,107,.65); background: rgba(255,107,107,.12); }
       .shared { color: #f5b041; font-weight: 650; }
       .unmatched { color: #ff6b6b; font-weight: 650; }
       .direct { color: #2ecc71; font-weight: 650; }
@@ -86,6 +89,16 @@
       {% for warning in data.dataQualityWarnings %}
         <div class="warn">{{ warning }}</div>
       {% endfor %}
+
+      {% if data.sourceDataChecks %}
+        <div class="sourceChecks" aria-label="Source data availability">
+          {% for check in data.sourceDataChecks %}
+            <span class="sourceCheck {% if check.status == 'missing' %}missing{% endif %}" title="{{ check.table }}">
+              {{ check.label }}: {{ check.rowCount }} row(s) - {% if check.status == 'missing' %}Missing{% else %}OK{% endif %}
+            </span>
+          {% endfor %}
+        </div>
+      {% endif %}
 
       <div class="cards">
         <div class="card">
